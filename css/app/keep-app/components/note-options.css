@@ -1,0 +1,10 @@
+.note-options {
+  display: flex;
+  gap: 10px;
+}
+
+.note-options i {
+  margin-top: 10px;
+  margin-left: 5px;
+  cursor: pointer;
+}

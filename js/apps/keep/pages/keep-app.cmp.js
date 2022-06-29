@@ -1,4 +1,5 @@
 import { noteService } from '../services/note.service.js'
+import { eventBus } from '../../../services/eventBus-service.js'
 import noteAdd from '../cmps/note-add.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
 
@@ -18,7 +19,14 @@ export default {
   },
 
   created() {
+    eventBus.on('delete-note', this.deleteNote)
     noteService.query().then((notes) => (this.notes = notes))
+  },
+
+  methods: {
+    deleteNote(noteId) {
+      noteService.remove(noteId)
+    },
   },
 
   components: {

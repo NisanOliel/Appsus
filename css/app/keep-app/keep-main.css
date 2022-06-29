@@ -1,4 +1,5 @@
 @import './components/note-list.css';
+@import './components/note-options.css';
 
 img {
   width: 100%;
