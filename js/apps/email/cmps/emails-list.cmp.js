@@ -7,7 +7,7 @@ export default {
     template: `
     <section class="emails-list">
         <table>
-            <tr v-for="email in emails" :key="email.id"  class="email-preview-container">
+            <tr v-for="email in emails" :key="email.id" :class="email.isRead ? 'read' : ''">
             <email-preview :email="email"/>
 
             </tr>
@@ -23,6 +23,8 @@ export default {
     },
     created() { },
     methods: {},
-    computed: {},
+    computed: {
+
+    },
     unmounted() { },
 };

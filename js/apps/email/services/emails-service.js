@@ -13,7 +13,8 @@ const gEmails = [
         senderEmail: 'Yolia@gmail.com',
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
-        isRead: false,
+        isRead: true,
+        isStar: false,
         sentAt: Date.now(),
         to: 'momo@momo.com'
     },
@@ -24,6 +25,7 @@ const gEmails = [
         subject: 'New commit',
         body: 'whatch the new commit i done in github',
         isRead: false,
+        isStar: false,
         sentAt: Date.now(),
         to: 'momo@momo.com'
     },
@@ -33,7 +35,8 @@ const gEmails = [
         senderEmail: 'GitGuardian@gmail.com',
         subject: 'Google API Key exposed on GitHub',
         body: 'GitGuardian has detected the following Google API Key exposed within your GitHub account',
-        isRead: false,
+        isRead: true,
+        isStar: true,
         sentAt: Date.now(),
         to: 'momo@momo.com'
     },
@@ -44,6 +47,7 @@ const gEmails = [
         subject: 'Your free trial is over',
         body: ' The free trial for Nisan team has ended. Please log in and purchase a subscription within 14 days to keep working on your design projects.',
         isRead: false,
+        isStar: true,
         sentAt: Date.now(),
         to: 'momo@momo.com'
     },
@@ -54,6 +58,7 @@ const gEmails = [
         subject: 'Reset Your Font Awesome Password',
         body: 'It looks like someone submitted a request to reset your Font Awesome password. If it wasnt you theres nothing to do nor worry about. You can keep on keeping on.',
         isRead: false,
+        isStar: false,
         sentAt: Date.now(),
         to: 'momo@momo.com'
     },
@@ -66,12 +71,12 @@ _createEmails();
 
 export const emailService = {
     query,
+    remove,
     // get,
     // addReview,
     // removeReview,
     // getBooksList,
     // save,
-    // remove,
     // getNextbookId,
 
 
@@ -85,6 +90,9 @@ function query() {
     return storageService.query(EMAILS_KEY);
 }
 
+function remove(emailId) {
+    return storageService.remove(EMAILS_KEY, emailId)
+}
 // function addReview(bookId, review) {
 //     return storageService.get(EMAILS_KEY, bookId).then(book => {
 //         if (!book.reviews || !book.reviews) book.reviews = []
@@ -107,9 +115,6 @@ function save(email) {
     else return storageService.post(EMAILS_KEY, email)
 }
 
-function remove(emailId) {
-    return storageService.remove(EMAILS_KEY, emailId)
-}
 
 function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY);

@@ -1,3 +1,18 @@
 .email-preview-container {
-    background-color: blue;
+    min-width: 100%;
+    cursor: pointer;
+}
+
+.read {
+    background-color: rgba(242, 245, 245, 0.8);
+    font-weight: normal;
+}
+
+/* 
+.email-preview-container td {}
+
+.email-preview-container .read td {} */
+
+.star {
+    color: rgb(226, 226, 29);
 }
