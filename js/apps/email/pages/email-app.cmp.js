@@ -35,9 +35,13 @@ export default {
     },
     computed: {
         emailsToShow() {
+            var resTrue = null
             if (!this.filterBy) return this.emails;
-            const regex = new RegExp(this.filterBy.byName, "i");
-            return this.emails.filter((email) => regex.test(email.title));
+            if (this.filterBy.isRead === "true") resTrue = this.emails.filter((email) => email.isRead === true)
+            if (this.filterBy.isRead === "false") resTrue = this.emails.filter((email) => email.isRead === false)
+            const regex = new RegExp(this.filterBy.title, "i");
+            if (resTrue) return resTrue.filter((email) => regex.test(email.subject));
+            return this.emails.filter((email) => regex.test(email.subject));
         },
     },
     unmounted() { },
