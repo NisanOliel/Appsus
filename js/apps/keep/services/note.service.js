@@ -18,38 +18,51 @@ function _createNotes() {
   let notes = utilService.loadFromStorage(NOTES_KEY)
   if (!notes || !notes.length) {
     notes = [
-      // {
-      //   id: 'n101',
-      //   type: 'note-txt',
-      //   isPinned: true,
-      //   info: {
-      //     txt: 'Fullstack Me Baby!',
-      //     title: 'hey',
-      //     url: 'https://sitechecker.pro/wp-content/uploads/2017/12/URL-meaning.png',
-      //   },
-      // },
-      // {
-      //   id: 'n102',
-      //   type: 'note-img',
-      //   info: {
-      //     url: 'https://www.copahost.com/blog/wp-content/uploads/2019/07/imgsize2.png',
-      //     txt: 'Bobi and Me',
-      //   },
-      //   style: {
-      //     backgroundColor: '#00d',
-      //   },
-      // },
+      {
+        id: 'n101',
+        type: 'noteTxt',
+        isPinned: true,
+        info: {
+          txt: 'Fullstack Me Baby!',
+        },
+        style: {
+          backgroundColor: 'red',
+        },
+      },
+      {
+        id: 'n102',
+        type: 'noteImg',
+        info: {
+          url: 'https://cloudfour.com/examples/img-currentsrc/images/kitten-small.png',
+          title: 'Bobi and Me',
+        },
+        style: {
+          backgroundColor: '#00d',
+        },
+      },
       {
         id: 'n103',
-        type: 'note-todos',
+        type: 'noteTodos',
         info: {
-          title: 'Song',
-          url: 'https://www.youtube.com/watch?v=AEpZbvtiQFs&t=1157s',
           label: 'Get my stuff together',
           todos: [
             { txt: 'Driving liscence', doneAt: null },
             { txt: 'Coding power', doneAt: 187111111 },
           ],
+        },
+        style: {
+          backgroundColor: 'yellow',
+        },
+      },
+      {
+        id: 'n104',
+        type: 'noteVideo',
+        info: {
+          title: 'Video',
+          url: 'https://www.youtube.com/embed/DXUAyRRkI6k',
+        },
+        style: {
+          backgroundColor: 'green',
         },
       },
     ]
