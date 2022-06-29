@@ -1,0 +1,17 @@
+/* COMPONENTS  */
+
+@import 'components/emails-list.css';
+@import 'components/email-preview.css';
+/* @import 'components/book-filter.css';
+@import 'components/book-deatils.css';
+@import 'components/review-add.css';
+@import 'components/reviews-view.css';
+
+ */
+
+
+.email-app {
+    min-height: 90vh;
+    background-color: aqua;
+    overflow-x: hidden;
+}
