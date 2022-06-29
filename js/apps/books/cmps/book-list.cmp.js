@@ -9,7 +9,6 @@ export default {
      
             <li v-for="(book,idx) in books" :key ="book.id" class="book-preview-container">
             <book-preview :book="book"/>
-            <!-- <button @click="select(book)">Details</button> -->
             <router-link class="details" :to="'/book/'+book.id">Details</router-link>
 
 
@@ -25,9 +24,7 @@ export default {
     },
     created() { },
     methods: {
-        // select(book) {
-        //     this.$emit("selected", book);
-        // },
+
     },
     computed: {},
     unmounted() { },
