@@ -73,6 +73,8 @@ export const emailService = {
     query,
     remove,
     get,
+    emailStar,
+    readMail
     // addReview,
     // removeReview,
     // getBooksList,
@@ -93,6 +95,17 @@ function query() {
 function remove(emailId) {
     return storageService.remove(EMAILS_KEY, emailId)
 }
+
+function emailStar(email) {
+    email.isStar = !email.isStar;
+    return storageService.put(EMAILS_KEY, email);
+}
+function readMail(email) {
+    email.isRead = !email.isRead;
+    return storageService.put(EMAILS_KEY, email);
+}
+
+
 // function addReview(bookId, review) {
 //     return storageService.get(EMAILS_KEY, bookId).then(book => {
 //         if (!book.reviews || !book.reviews) book.reviews = []

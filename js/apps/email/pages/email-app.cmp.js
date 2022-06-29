@@ -8,7 +8,7 @@ export default {
     template: `
     <email-filter v-if="emails" @filtered="setFilter" :emails="emails"></email-filter>
     <section class="email-app">
-        <email-list :emails="emailsToShow"></email-list>
+        <email-list @readMail="readMail" @starMail="starMail" :emails="emailsToShow"></email-list>
 
     </section>
 `,
@@ -31,6 +31,12 @@ export default {
     methods: {
         setFilter(filterBy) {
             this.filterBy = filterBy;
+        },
+        starMail(email) {
+            emailService.emailStar(email)
+        },
+        readMail(email) {
+            emailService.readMail(email)
         },
     },
     computed: {

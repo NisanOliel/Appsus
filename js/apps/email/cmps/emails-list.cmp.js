@@ -9,7 +9,7 @@ export default {
         
     <table>
             <tr v-for="email in emails" :key="email.id" :class="email.isRead ? 'read' : ''">
-            <email-preview :email="email"/>
+            <email-preview @readMail="readMail"  @starMail="starMail" :email="email"/>
 
             </tr>
 
@@ -23,7 +23,14 @@ export default {
         return {};
     },
     created() { },
-    methods: {},
+    methods: {
+        starMail(email) {
+            this.$emit('starMail', email)
+        },
+        readMail(email) {
+            this.$emit('readMail', email)
+        },
+    },
     computed: {
 
     },

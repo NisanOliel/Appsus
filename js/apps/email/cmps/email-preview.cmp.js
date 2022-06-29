@@ -6,17 +6,17 @@ export default {
     props: ["email"],
     template: `
            
-           <router-link :to="'/email/'+email.id">
-        <tr class="email-preview-container" >
-          <td> <i :class="starred"></i> </td> 
+           <tr class="email-preview-container" >
+               <td @click="onStarMail"> <i :class="starred"></i> </td> 
+               <router-link :to="'/email/'+email.id">
              <td>{{email.sender}}</td>
             <td>{{email.subject}}</td>
             <td>{{dateFormat}}</td>
-            <td><i :class="envelope"></i></td>
+        </router-link>  
+            <td @click="onReadMail"><i :class="envelope"></i></td>
             <td @click="remove(email.id)"><i class="fa-regular fa-trash-can trash"></i></td>
             
         </tr>
-    </router-link>  
     
 `,
     data() {
@@ -28,14 +28,12 @@ export default {
     created() {
     },
     methods: {
-        remove(idx) {
-            emailService.remove(idx)
-            eventBus.emit('show-msg', { txt: 'Book Removed successfully', type: 'success' });
+        onStarMail() {
+            this.$emit('starMail', this.email)
         },
-        // moveTo() {
-        //     this.$router.push("'/email/'+email.id")
-
-        // }
+        onReadMail() {
+            this.$emit('readMail', this.email)
+        },
 
     },
     computed: {
