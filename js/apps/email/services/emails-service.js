@@ -72,7 +72,7 @@ _createEmails();
 export const emailService = {
     query,
     remove,
-    // get,
+    get,
     // addReview,
     // removeReview,
     // getBooksList,

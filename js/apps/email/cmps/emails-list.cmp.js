@@ -6,7 +6,8 @@ export default {
 
     template: `
     <section class="emails-list">
-        <table>
+        
+    <table>
             <tr v-for="email in emails" :key="email.id" :class="email.isRead ? 'read' : ''">
             <email-preview :email="email"/>
 

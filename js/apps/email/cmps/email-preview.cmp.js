@@ -5,25 +5,38 @@ import { eventBus } from "../../../services/eventBus-service.js";
 export default {
     props: ["email"],
     template: `
-        <tr class="email-preview-container">  
+           
+           <router-link :to="'/email/'+email.id">
+        <tr class="email-preview-container" >
           <td> <i :class="starred"></i> </td> 
              <td>{{email.sender}}</td>
             <td>{{email.subject}}</td>
             <td>{{dateFormat}}</td>
             <td><i :class="envelope"></i></td>
             <td @click="remove(email.id)"><i class="fa-regular fa-trash-can trash"></i></td>
+            
         </tr>
+    </router-link>  
+    
 `,
     data() {
         return {
+
+
         };
     },
-    created() { },
+    created() {
+    },
     methods: {
         remove(idx) {
             emailService.remove(idx)
             eventBus.emit('show-msg', { txt: 'Book Removed successfully', type: 'success' });
-        }
+        },
+        // moveTo() {
+        //     this.$router.push("'/email/'+email.id")
+
+        // }
+
     },
     computed: {
         dateFormat() {
