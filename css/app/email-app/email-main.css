@@ -3,11 +3,12 @@
 @import 'components/emails-list.css';
 @import 'components/email-preview.css';
 @import 'components/email-deatils.css';
-/* @import 'components/book-filter.css';
-@import 'components/review-add.css';
-@import 'components/reviews-view.css';
+@import 'components/email-side.css';
+@import 'components/email-compose.css';
+/* @import 'components/review-add.css';
+@import 'components/reviews-view.css'; */
 
- */
+
 
 
 .email-app {

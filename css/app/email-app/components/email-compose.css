@@ -1,0 +1,46 @@
+.compose-email {
+    background-color: white;
+    width: 25em;
+    height: 30em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 10px;
+    position: absolute;
+    left: 100px;
+    bottom: 20px;
+
+
+}
+
+.compose-email h3 {
+    background-color: #202124;
+    color: white;
+    padding: 5px;
+    margin: 0;
+}
+
+.compose-email input {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+    padding-bottom: 5px;
+    margin: 3px;
+}
+
+.compose-email button {
+    width: 6em;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    margin: auto;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.compose-email button:hover {
+    box-shadow: 0 1px 2px 0 rgb(26 115 232 / 45%), 0 1px 3px 1px rgb(26 115 232 / 30%);
+    background-color: #297be6;
+    outline: 1px solid transparent;
+}

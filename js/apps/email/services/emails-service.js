@@ -74,11 +74,11 @@ export const emailService = {
     remove,
     get,
     emailStar,
-    readMail
+    readMail,
+    save,
     // addReview,
     // removeReview,
     // getBooksList,
-    // save,
     // getNextbookId,
 
 
@@ -106,6 +106,10 @@ function readMail(email) {
 }
 
 
+function save(email) {
+    if (email.id) return storageService.put(EMAILS_KEY, email)
+    else return storageService.post(EMAILS_KEY, email)
+}
 // function addReview(bookId, review) {
 //     return storageService.get(EMAILS_KEY, bookId).then(book => {
 //         if (!book.reviews || !book.reviews) book.reviews = []
@@ -123,10 +127,6 @@ function readMail(email) {
 //     })
 // }
 
-function save(email) {
-    if (email.id) return storageService.put(EMAILS_KEY, email)
-    else return storageService.post(EMAILS_KEY, email)
-}
 
 
 function _createEmails() {
