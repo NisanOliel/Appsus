@@ -21,6 +21,10 @@ export default {
     data() {
         return {
             showCompose: false,
+            filterBy: {
+                title: '',
+                isRead: 'All',
+            },
         };
     },
     created() { },

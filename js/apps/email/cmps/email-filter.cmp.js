@@ -17,8 +17,6 @@ export default {
             filterBy: {
                 title: '',
                 isRead: 'All',
-
-
             },
 
         };
