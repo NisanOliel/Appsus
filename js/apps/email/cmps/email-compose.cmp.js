@@ -1,19 +1,21 @@
 import { eventBus } from "../../../services/eventBus-service.js";
+import { utilService } from "../../../services/util-service.js";
 
 
 export default {
     template: `
  <form class="compose-email">
             <h3>New Message</h3>
-                <input type="email" id="email" placeholder="To:" required  v-model="newEmail.to">
-                <input type="text" v-model="newEmail.subject" placeholder="Subject:" >
-                <textarea v-model="newEmail.body" rows="30" cols="100">></textarea>
+                <input type="email" placeholder="To:"  v-model="newEmail.to">
+                <input type="text" v-model="newEmail.subject" placeholder="Subject:"/>
+                <textarea placeholder="Text here.." v-model="newEmail.body" rows="38" cols="100">></textarea>
             <button @click.prevent="sendEmail">Send</button>
         </form>
 `,
     data() {
         return {
             newEmail: {
+                id: utilService.makeId(),
                 to: null,
                 subject: null,
                 body: null,
@@ -28,7 +30,7 @@ export default {
     created() { },
     methods: {
         sendEmail() {
-            if (this.newEmail.to === null && this.newEmail.body === null) return
+            if (this.newEmail.to === null || this.newEmail.body === null || this.newEmail.subject === null) return
             this.newEmail.sentAt = Date.now()
             this.newEmail.sender = 'Mahatma Appsus'
             this.$emit('newEmail', this.newEmail)

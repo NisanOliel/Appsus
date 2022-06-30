@@ -38,11 +38,9 @@ export default {
         setFilter(filterBy) {
             this.filterBy.title = filterBy.text;
             this.filterBy.isRead = filterBy.read;
-            console.log('this.filterBy:', this.filterBy)
         },
         setFolder(filterBy) {
             this.filterBy.folder = filterBy
-            console.log('this.filterBy:', this.filterBy)
         },
 
         starMail(email) {
@@ -64,7 +62,7 @@ export default {
         removeEmail(email) {
             if (email.removedAt) {
                 emailService.remove(email.id)
-                // emailService.query().then(emails => this.emails = emails)
+                emailService.query().then(emails => this.emails = emails)
                 eventBus.emit('show-msg', { txt: 'Email deleted permanently ', type: 'success' });
             } else {
                 email.removedAt = Date.now()
@@ -76,13 +74,11 @@ export default {
     computed: {
         emailsToShow() {
             let arr = this.emails
-            console.log('arr:', arr)
-            if (this.filterBy.isRead === 'All') arr = this.emails;
-            arr = this.emails.filter((email) => {
-                return email.isRead === this.filterBy.isRead
-            });
+            if (this.filterBy.isRead !== 'All')
+                arr = this.emails.filter((email) => {
+                    return email.isRead === this.filterBy.isRead
+                });
 
-            console.log('111111', arr);
             switch (this.filterBy.folder) {
                 case "inbox":
                     arr = arr.filter((email) => email.to === "user@appsus.com" && !email.removedAt)
@@ -103,9 +99,7 @@ export default {
                     break;
 
             }
-            console.log('222222', arr)
             const regex = new RegExp(this.filterBy.title, "i");
-            console.log('3333333:', arr)
             if (arr) return arr.filter((email) => regex.test(email.subject));
 
         },
