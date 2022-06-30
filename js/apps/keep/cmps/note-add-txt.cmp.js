@@ -13,6 +13,7 @@ export default {
         id: Date.now() % 1000,
         type: 'noteTxt',
         isPinned: false,
+        isEdit: false,
         info: {
           txt: '',
         },

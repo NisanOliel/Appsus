@@ -4,9 +4,11 @@ export default {
   props: ['note'],
   template: `
 		  <section class="note-img note-preview" :style="note.style">
-			<note-options :noteId="note.id"/>
+			<note-options :note="note"/>
+			<div :contenteditable="note.isEdit" class="edit-area">
 			  <h2>{{note.info.title}}</h2>
 			  <img :src="note.info.url"/>
+			</div>
 		  </section>
 	  `,
 

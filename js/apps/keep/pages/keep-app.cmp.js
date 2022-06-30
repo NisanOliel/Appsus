@@ -19,14 +19,32 @@ export default {
   },
 
   created() {
-    eventBus.on('delete-note', this.deleteNote)
+    eventBus.on('note-delete', this.noteDelete)
+    eventBus.on('note-edit', this.noteEdit)
+    eventBus.on('note-pin', this.notePin)
     noteService.query().then((notes) => (this.notes = notes))
   },
 
   methods: {
-    deleteNote(noteId) {
+    noteDelete(noteId) {
       noteService.remove(noteId).then(() => {
         noteService.query().then((notes) => (this.notes = notes))
+      })
+    },
+    noteEdit(noteId) {
+      noteService.get(noteId).then((note) => {
+        note.isEdit = !note.isEdit
+        noteService.update(note).then(() => {
+          noteService.query().then((notes) => (this.notes = notes))
+        })
+      })
+    },
+    notePin(noteId) {
+      noteService.get(noteId).then((note) => {
+        note.isPinned = !note.isPinned
+        noteService.updateUnshift(note).then(() => {
+          noteService.query().then((notes) => (this.notes = notes))
+        })
       })
     },
     noteAdd(note) {
