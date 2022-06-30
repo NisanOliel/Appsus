@@ -11,9 +11,9 @@ export default {
 
         <button class="side-btn" @click="inboxClick"><i class="fa-solid fa-inbox"></i> Inbox</button>
         <button class="side-btn" @click="starClick" ><i class="fa-regular fa-star"></i> Starred</button>
-        <button class="side-btn" @click="sendClick" ><i class="fa-solid fa-paper-plane"></i>  Sent</button>
-        <button class="side-btn" ><i class="fa-solid fa-file"></i> Drafts</button>
-        <button class="side-btn" ><i class="fa-solid fa-trash-can"></i> Trash</button>
+        <button class="side-btn" @click="sentClick" ><i class="fa-solid fa-paper-plane"></i>  Sent</button>
+        <!-- <button class="side-btn" @click="draftClick" ><i class="fa-solid fa-file"></i> Drafts</button> -->
+        <button class="side-btn" @click="trashClick" ><i class="fa-solid fa-trash-can"></i> Trash</button>
         <h3> <i class="fa-regular fa-envelope-open"></i> {{unRead}}</h3>
 
     </section>
@@ -25,11 +25,9 @@ export default {
     data() {
         return {
             showCompose: false,
-            filterBy: {
-                title: '',
-                isRead: '',
-                isStar: ''
-            },
+            folder: ''
+
+
 
         };
     },
@@ -42,29 +40,29 @@ export default {
             this.$emit('newEmail', newEmail)
             this.showCompose = false
         },
-        filter() {
-            this.$emit("filtered", this.filterBy);
+        setFolder() {
+            this.$emit("setFolder", this.folder);
         },
-        filterCategory() {
-            this.$emit("FilterCategory", this.filterCate);
-        },
+
         inboxClick() {
-            this.filterBy = {
-                isRead: 'All',
-            },
-                this.filter()
+            this.folder = 'inbox'
+            this.setFolder()
         },
         starClick() {
-            this.filterCate = {
-                isStar: 'true',
-            },
-                this.filterCategory()
+            this.folder = 'star'
+            this.setFolder()
         },
-        sendClick() {
-            this.filterCate = {
-                sender: 'You'
-            },
-                this.filterCategory()
+        sentClick() {
+            this.folder = 'sent'
+            this.setFolder()
+        },
+        draftClick() {
+            this.folder = 'draft'
+            this.setFolder()
+        },
+        trashClick() {
+            this.folder = 'trash'
+            this.setFolder()
         },
     },
     computed: {},

@@ -4,12 +4,12 @@ export default {
     template: `
  <section class = "email-filter" >
  <label>Search: </label>
- <input type="search" placeholder="Search here.." v-model="filterBy.title" @input="filter">
+ <input type="search" placeholder="Search here.." v-model="filterBy.text" @input="filter">
  <label for="">Read/Unread </label>
- <select value="All" @change="filter" v-model="filterBy.isRead">
+ <select value="All" @change="filter" v-model="filterBy.read">
               <option value="All" >All</option>
-              <option value="true" >Read</option>
-              <option value="false" >Unread</option>
+              <option  v-bind:value="true" >Read</option>
+              <option v-bind:value="false" >Unread</option>
             </select>
             <label>Sort </label>
             <select @change="onSort" v-model="sort">
@@ -21,8 +21,8 @@ export default {
     data() {
         return {
             filterBy: {
-                title: '',
-                isRead: 'All',
+                text: '',
+                read: 'All',
             },
             sort: 'date',
 
@@ -32,12 +32,18 @@ export default {
     created() { },
     methods: {
         filter() {
+            console.log('this.filterBy.read:', this.filterBy.read)
             this.$emit("filtered", this.filterBy);
         },
         onSort() {
             this.$emit('sort', this.sort);
         },
+
+
     },
-    computed: {},
+    computed: {
+
+
+    },
     unmounted() { },
 };

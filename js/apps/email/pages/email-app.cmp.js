@@ -2,7 +2,7 @@ import { emailService } from "../services/emails-service.js"
 import emailList from "../cmps/emails-list.cmp.js";
 import emailFilter from "../cmps/email-filter.cmp.js";
 import emailSide from "../cmps/email-side.cmp.js"
-
+import { eventBus } from "../../../services/eventBus-service.js";
 
 
 export default {
@@ -10,11 +10,9 @@ export default {
     <email-filter v-if="emails" @filtered="setFilter" :emails="emails" @sort="sortEmails"></email-filter>
     <section class="email-app">
             <div class="email-list-side">
-                <email-side @filtered="setFilter"  @newEmail="sendEmail" :unRead="unReadCount"></email-side>
-            <email-list @readMail="readMail" @starMail="starMail" :emails="emailsToShow"></email-list>
+                <email-side @setFolder="setFolder"  @newEmail="sendEmail" :unRead="unReadCount"></email-side>
+            <email-list @readMail="readMail" @removeEmail="removeEmail" @starMail="starMail" :emails="emailsToShow"></email-list>
         </div>
-
-
     </section>
 `,
     components: {
@@ -25,25 +23,26 @@ export default {
     data() {
         return {
             emails: null,
-            filterBy: null,
-            criteria: {
-                status: null,
-                txt: null,
-                isRead: null,
-                isStared: null,
+            filterBy: {
+                title: '',
+                folder: '',
+                isRead: 'All'
             }
-
-
         };
     },
     created() {
         emailService.query().then(emails => this.emails = emails)
-
     },
 
     methods: {
         setFilter(filterBy) {
-            this.filterBy = filterBy;
+            this.filterBy.title = filterBy.text;
+            this.filterBy.isRead = filterBy.read;
+            console.log('this.filterBy:', this.filterBy)
+        },
+        setFolder(filterBy) {
+            this.filterBy.folder = filterBy
+            console.log('this.filterBy:', this.filterBy)
         },
 
         starMail(email) {
@@ -58,20 +57,57 @@ export default {
         },
         sortEmails(sortBy) {
             if (sortBy === 'date') {
-                return this.emails.sort((e1, e2) => e2.sentAt - e1.sentAt);
+                return this.emails.sort((email1, email2) => email2.sentAt - email1.sentAt);
             } else
-                return this.emails.sort((e1, e2) => e1.subject.toLowerCase() > e2.subject.toLowerCase() ? 1 : -1);
+                return this.emails.sort((email1, email2) => email1.subject.toLowerCase() > email2.subject.toLowerCase() ? 1 : -1);
         },
+        removeEmail(email) {
+            if (email.removedAt) {
+                emailService.remove(email.id)
+                // emailService.query().then(emails => this.emails = emails)
+                eventBus.emit('show-msg', { txt: 'Email deleted permanently ', type: 'success' });
+            } else {
+                email.removedAt = Date.now()
+                eventBus.emit('show-msg', { txt: 'Email Draft', type: 'success' });
+            }
+
+        }
     },
     computed: {
         emailsToShow() {
-            var resTrue = null
-            if (!this.filterBy) return this.emails;
-            if (this.filterBy.isRead === "true") resTrue = this.emails.filter((email) => email.isRead === true)
-            if (this.filterBy.isRead === "false") resTrue = this.emails.filter((email) => email.isRead === false)
+            let arr = this.emails
+            console.log('arr:', arr)
+            if (this.filterBy.isRead === 'All') arr = this.emails;
+            arr = this.emails.filter((email) => {
+                return email.isRead === this.filterBy.isRead
+            });
+
+            console.log('111111', arr);
+            switch (this.filterBy.folder) {
+                case "inbox":
+                    arr = arr.filter((email) => email.to === "user@appsus.com" && !email.removedAt)
+                    break;
+                case "star":
+                    arr = arr.filter((email) => email.isStar === true && !email.removedAt)
+                    break;
+                case "sent":
+                    arr = arr.filter((email) => email.sender === "Mahatma Appsus" && !email.removedAt)
+                    break;
+                // case "draft":
+                //     arr = arr.filter((email) => email.removedAt)
+                //     break;
+                case "trash":
+                    arr = arr.filter((email) => email.removedAt)
+                    break;
+                default:
+                    break;
+
+            }
+            console.log('222222', arr)
             const regex = new RegExp(this.filterBy.title, "i");
-            if (resTrue) return resTrue.filter((email) => regex.test(email.subject));
-            return this.emails.filter((email) => regex.test(email.subject));
+            console.log('3333333:', arr)
+            if (arr) return arr.filter((email) => regex.test(email.subject));
+
         },
         unReadCount() {
             let count = 0;

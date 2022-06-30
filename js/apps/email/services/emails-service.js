@@ -16,7 +16,7 @@ const gEmails = [
         isRead: true,
         isStar: false,
         sentAt: 1650505550201,
-        to: loggedinUser.email,
+        to: "abab@appsus.com",
     },
     {
         id: utilService.makeId(),
@@ -62,6 +62,17 @@ const gEmails = [
         sentAt: Date.now(),
         to: loggedinUser.email,
     },
+    {
+        id: utilService.makeId(),
+        sender: 'AliExpress ',
+        senderEmail: 'transaction@notice.aliexpress.com',
+        subject: 'Your delivery has been confirmed',
+        body: 'Hi Nisan Oliel Order 3016292804823202 has been confirmed as received. You can view the order details below. See order details If you still havent received the item or youve received it but are unhappy, you still have 15 days to submit a dispute request.',
+        isRead: false,
+        isStar: false,
+        sentAt: Date.now(),
+        to: "nisan@gmai.com"
+    },
 
 
 ]
@@ -76,11 +87,6 @@ export const emailService = {
     emailStar,
     readMail,
     save,
-    // addReview,
-    // removeReview,
-    // getBooksList,
-    // getNextbookId,
-
 
 };
 
@@ -110,24 +116,6 @@ function save(email) {
     if (email.id) return storageService.put(EMAILS_KEY, email)
     else return storageService.post(EMAILS_KEY, email)
 }
-// function addReview(bookId, review) {
-//     return storageService.get(EMAILS_KEY, bookId).then(book => {
-//         if (!book.reviews || !book.reviews) book.reviews = []
-//         book.reviews.push(review)
-//         save(book)
-//         return book
-//     })
-// }
-
-// function removeReview(bookId, reviewId) {
-//     return storageService.get(EMAILS_KEY, bookId).then(book => {
-//         book.reviews.splice(reviewId, 1)
-//         if (book.reviews.length === 0) book.reviews = null
-//         save(book)
-//     })
-// }
-
-
 
 function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY);
@@ -137,48 +125,6 @@ function _createEmails() {
     return emails;
 }
 
-// function getNextbookId(emailId) {
-//     return storageService.query(EMAILS_KEY)
-//         .then(emails => {
-//             const idx = emails.findIndex(book => book.id === emailId)
-//             return (idx < emails.length - 1) ? emails[idx + 1].id : emails[0].id
-//         })
-// }
-
-
-// function getBooksList(value) {
-//     const url = `https://www.googleapis.com/books/v1/volumes?printType=books&q=${value}`
-//     return axios.get(url)
-//         .then(res => res.data.items)
-//         .then(items => {
-//             let newItems = items.map(loadBookInfo)
-//             return Promise.all(newItems)
-//                 .then(item => {
-//                     return item
-//                 })
-//         })
-// }
-
-// function loadBookInfo(book) {
-//     const info = book.volumeInfo
-//     return {
-//         bookId: book.id,
-//         title: info.title,
-//         subtitle: info.subtitle,
-//         authors: info.authors,
-//         thumbnail: info.imageLinks?.thumbnail,
-//         description: info.description,
-//         publishedDate: info.publishedDate,
-//         pageCount: info.pageCount,
-//         language: info.language,
-//         categories: info.categories,
-//         listPrice: {
-//             amount: utilService.getRandomInt(0, 200),
-//         }
-
-//     }
-
-// }
 
 
 

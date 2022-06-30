@@ -4,12 +4,16 @@ import { eventBus } from "../../../services/eventBus-service.js";
 export default {
     template: `
  <section v-if="email" class="email-details">
-     <h1>{{email.subject}}</h1>
+    <div class="sub-date">
+        <h1>{{email.subject}}</h1>
+        <h3>{{dateFormat}}</h3>
+    </div>
      <h5>From : {{email.sender}} <span><{{email.senderEmail}}></span></h5>
      <p>{{email.body}}</p>
-     <h3>{{dateFormat}}</h3>
-     <router-link :to="'/email/'">back</router-link>
-     <td @click="remove(email.id)"><i class="fa-regular fa-trash-can trash"></i></td>
+     <div class="btn-details">
+         <router-link title="back to emails" :to="'/email/'">back</router-link>
+         <td  title="Delete email" @click="remove(email.id)"><i class="fa-regular fa-trash-can trash"></i></td>
+        </div>
 
  </section>
 `,

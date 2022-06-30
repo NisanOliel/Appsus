@@ -10,7 +10,7 @@ export default {
             <div class="icons">
                 <td @click="onStarMail"> <i :class="starred"></i> </td> 
                 <td @click="onReadMail"><i :class="envelope"></i></td>
-                <td @click="remove(email.id)"><i class="fa-regular fa-trash-can trash"></i></td>
+                <td @click="toDraft(email)"><i class="fa-regular fa-trash-can trash"></i></td>
             </div>
             <div class="email-info">
 
@@ -39,6 +39,9 @@ export default {
         onReadMail() {
             this.$emit('readMail', this.email)
         },
+        toDraft(email) {
+            this.$emit('removeEmail', email)
+        }
 
     },
     computed: {
@@ -53,7 +56,6 @@ export default {
         },
         starred() {
             return (this.email.isStar) ? "fa-solid fa-star star" : "fa-regular fa-star"
-
         }
     },
     unmounted() { },
