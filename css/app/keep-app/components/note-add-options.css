@@ -1,0 +1,12 @@
+.note-add-options {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  margin-bottom: 2rem;
+}
+
+.add-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

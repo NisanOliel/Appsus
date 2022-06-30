@@ -7,11 +7,8 @@ _createNotes()
 export const noteService = {
   query,
   get,
-  addReview,
-  removeReview,
   save,
   remove,
-  getNextNoteId,
 }
 
 function _createNotes() {
@@ -79,36 +76,13 @@ function query() {
   return storageService.query(NOTES_KEY)
 }
 
-function addReview(noteId, review) {
-  return storageService.get(NOTES_KEY, noteId).then((note) => {
-    if (!note.reviews || !note.reviews) note.reviews = []
-    note.reviews.push(review)
-    save(note)
-    return note
-  })
-}
-function removeReview(noteId, reviewId) {
-  return storageService.get(NOTES_KEY, noteId).then((note) => {
-    note.reviews.splice(reviewId, 1)
-    if (note.reviews.length === 0) note.reviews = null
-    save(note)
-  })
-}
-
 function save(note) {
-  if (note.id) return storageService.put(NOTES_KEY, note)
-  else return storageService.post(NOTES_KEY, note)
+  // if (note.id) return storageService.put(NOTES_KEY, note)
+  return storageService.post(NOTES_KEY, note)
 }
 
 function remove(noteId) {
   return storageService.remove(NOTES_KEY, noteId)
-}
-
-function getNextNoteId(noteId) {
-  return storageService.query(NOTES_KEY).then((notes) => {
-    const idx = notes.findIndex((note) => note.id === noteId)
-    return idx < notes.length - 1 ? notes[idx + 1].id : notes[0].id
-  })
 }
 
 // function getNotesList(value) {

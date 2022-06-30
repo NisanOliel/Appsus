@@ -1,13 +1,13 @@
 import { noteService } from '../services/note.service.js'
 import { eventBus } from '../../../services/eventBus-service.js'
-import noteAdd from '../cmps/note-add.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
+import noteAdd from '../cmps/note-add.cmp.js'
 
 export default {
   template: `
     <section class="keep-app">
         <h1>My Notes</h1>
-        <note-add/>
+        <note-add @note-add="noteAdd"/>
         <note-list :notes="notes"/>
     </section>
 `,
@@ -25,12 +25,21 @@ export default {
 
   methods: {
     deleteNote(noteId) {
-      noteService.remove(noteId)
+      noteService.remove(noteId).then(() => {
+        noteService.query().then((notes) => (this.notes = notes))
+      })
+    },
+    noteAdd(note) {
+      noteService.save(note).then(() => {
+        noteService.query().then((notes) => (this.notes = notes))
+      })
     },
   },
 
   components: {
-    noteAdd,
     noteList,
+    noteAdd,
   },
 }
+
+// https://www.npmjs.com/package/vue-contenteditable
