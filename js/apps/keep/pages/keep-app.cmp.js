@@ -42,9 +42,6 @@ export default {
     notePin(noteId) {
       noteService.get(noteId).then((note) => {
         note.isPinned = !note.isPinned
-        noteService.updateUnshift(note).then(() => {
-          noteService.query().then((notes) => (this.notes = notes))
-        })
       })
     },
     noteAdd(note) {
