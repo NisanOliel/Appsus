@@ -26,15 +26,21 @@ export default {
         return {
             emails: null,
             filterBy: null,
+            criteria: {
+                status: null,
+                txt: null,
+                isRead: null,
+                isStared: null,
+            }
+
 
         };
     },
     created() {
         emailService.query().then(emails => this.emails = emails)
 
-
-
     },
+
     methods: {
         setFilter(filterBy) {
             this.filterBy = filterBy;

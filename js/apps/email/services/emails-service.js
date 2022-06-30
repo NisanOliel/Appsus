@@ -16,7 +16,7 @@ const gEmails = [
         isRead: true,
         isStar: false,
         sentAt: 1650505550201,
-        to: 'momo@momo.com'
+        to: loggedinUser.email,
     },
     {
         id: utilService.makeId(),
@@ -27,7 +27,7 @@ const gEmails = [
         isRead: false,
         isStar: false,
         sentAt: 1600505550201,
-        to: 'momo@momo.com'
+        to: loggedinUser.email,
     },
     {
         id: utilService.makeId(),
@@ -38,7 +38,7 @@ const gEmails = [
         isRead: true,
         isStar: true,
         sentAt: 1601505550201,
-        to: 'momo@momo.com'
+        to: loggedinUser.email,
     },
     {
         id: utilService.makeId(),
@@ -49,7 +49,7 @@ const gEmails = [
         isRead: false,
         isStar: true,
         sentAt: 1612508550601,
-        to: 'momo@momo.com'
+        to: loggedinUser.email,
     },
     {
         id: utilService.makeId(),
@@ -60,7 +60,7 @@ const gEmails = [
         isRead: false,
         isStar: false,
         sentAt: Date.now(),
-        to: 'momo@momo.com'
+        to: loggedinUser.email,
     },
 
 

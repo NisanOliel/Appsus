@@ -1,5 +1,6 @@
 import { eventBus } from "../../../services/eventBus-service.js";
 
+
 export default {
     template: `
  <form class="compose-email">
@@ -29,7 +30,7 @@ export default {
         sendEmail() {
             if (this.newEmail.to === null && this.newEmail.body === null) return
             this.newEmail.sentAt = Date.now()
-            this.newEmail.sender = "You"
+            this.newEmail.sender = 'Mahatma Appsus'
             this.$emit('newEmail', this.newEmail)
             eventBus.emit('show-msg', { txt: 'Email sent', type: 'success' });
 
