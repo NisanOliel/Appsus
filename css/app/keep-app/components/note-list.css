@@ -2,9 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
+  gap: 10px;
 }
 
 .note-preview {
-  height: 200px;
   width: 200px;
+  justify-self: center;
 }
