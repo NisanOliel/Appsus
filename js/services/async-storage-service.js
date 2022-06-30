@@ -5,6 +5,7 @@ export const storageService = {
   put,
   remove,
   postMany,
+  putUnshift,
 }
 
 // gets all the items
@@ -44,6 +45,16 @@ function put(entityType, updatedEntity) {
   return query(entityType).then((entities) => {
     const idx = entities.findIndex((entity) => entity.id === updatedEntity.id)
     entities.splice(idx, 1, updatedEntity)
+    _save(entityType, entities)
+    return updatedEntity
+  })
+}
+
+function putUnshift(entityType, updatedEntity) {
+  return query(entityType).then((entities) => {
+    const idx = entities.findIndex((entity) => entity.id === updatedEntity.id)
+    entities.splice(idx, 1)
+    entities.unshift(updatedEntity)
     _save(entityType, entities)
     return updatedEntity
   })

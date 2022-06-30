@@ -4,8 +4,10 @@ export default {
   props: ['note'],
   template: `
 		<section class="note-txt note-preview" :style="note.style">
-			<note-options :noteId="note.id" />
-			<p>{{note.info.txt}}</p>
+			<note-options :note="note" />
+			<div :contenteditable="note.isEdit" class="edit-area">
+				<p>{{note.info.txt}}</p>
+			</div>
 		</section>
 	`,
 
