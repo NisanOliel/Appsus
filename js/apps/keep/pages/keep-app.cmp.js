@@ -42,6 +42,12 @@ export default {
     notePin(noteId) {
       noteService.get(noteId).then((note) => {
         note.isPinned = !note.isPinned
+        noteService.update(note).then(() => {
+          noteService.query().then((notes) => {
+            notes.sort((a, b) => Number(b.isPinned) - Number(a.isPinned))
+            this.notes = notes
+          })
+        })
       })
     },
     noteAdd(note) {
