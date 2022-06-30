@@ -32,7 +32,6 @@ export default {
     created() { },
     methods: {
         filter() {
-            console.log('this.filterBy.read:', this.filterBy.read)
             this.$emit("filtered", this.filterBy);
         },
         onSort() {
