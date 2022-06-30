@@ -1,15 +1,22 @@
 .emails-list {
-    background-color: white;
+    background-color: whitesmoke;
     font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
     font-size: 1em;
     letter-spacing: .2px;
     font-weight: bold;
+    width: 100%;
+    min-height: 70vh;
 
 }
 
 .emails-list table {
-    width: 100%;
+    width: 100vw;
+    border-collapse: separate;
+    border-spacing: 5px 10px;
+
 }
+
+
 
 .emails-list a {
     text-decoration: none;

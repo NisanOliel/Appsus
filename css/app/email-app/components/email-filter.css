@@ -1,0 +1,32 @@
+.email-filter {
+    background-color: #ebeff9;
+    border-radius: 4px;
+    padding: 0.5em;
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.email-filter input {
+    align-items: center;
+    height: 1.9em;
+
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000000;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #fdfeff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    margin-right: 0.5em;
+}
+
+.email-filter select {
+    height: 1.9em;
+    color: #000000;
+    text-align: center;
+    background-color: #fdfeff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    margin-right: 0.5em;
+}

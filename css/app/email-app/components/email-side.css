@@ -2,4 +2,64 @@
     display: flex;
     flex-direction: column;
     width: 7em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.compose-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 32px;
+    display: block;
+    height: 30px;
+    min-width: 30px;
+
+}
+
+.compose-btn {
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    font-size: .875rem;
+    letter-spacing: .25px;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 24px;
+    color: #3c4043;
+    display: inline-flex;
+    font-weight: 600;
+    height: 48px;
+    min-width: 56px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 1.5em;
+    border: none;
+}
+
+.compose-btn:hover {
+    background-color: rgb(236, 231, 231);
+}
+
+.email-side .side-btn {
+    font-size: .875rem;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 24px;
+    color: #3c4043;
+    font-weight: 550;
+    height: 1.8em;
+    min-width: 2em;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 0.3em;
+    justify-content: center;
+    border: none;
+
+}
+
+.email-side .side-btn:hover {
+    background-color: rgb(236, 231, 231);
+
+}
+
+.email-side h3 {
+    text-align: center;
 }

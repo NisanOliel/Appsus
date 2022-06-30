@@ -18,6 +18,8 @@ export default {
                 body: null,
                 sentAt: null,
                 sender: null,
+                isStar: false,
+                isRead: false,
 
             },
         };
@@ -25,6 +27,7 @@ export default {
     created() { },
     methods: {
         sendEmail() {
+            if (this.newEmail.to === null && this.newEmail.body === null) return
             this.newEmail.sentAt = Date.now()
             this.newEmail.sender = "You"
             this.$emit('newEmail', this.newEmail)

@@ -7,14 +7,19 @@ export default {
     template: `
            
            <tr class="email-preview-container" >
-               <td @click="onStarMail"> <i :class="starred"></i> </td> 
-               <router-link @click="onReadMail" :to="'/email/'+email.id">
-             <td>{{email.sender}}</td>
-            <td>{{email.subject}}</td>
-            <td>{{dateFormat}}</td>
-        </router-link>  
-            <td @click="onReadMail"><i :class="envelope"></i></td>
-            <td @click="remove(email.id)"><i class="fa-regular fa-trash-can trash"></i></td>
+            <div class="icons">
+                <td @click="onStarMail"> <i :class="starred"></i> </td> 
+                <td @click="onReadMail"><i :class="envelope"></i></td>
+                <td @click="remove(email.id)"><i class="fa-regular fa-trash-can trash"></i></td>
+            </div>
+            <div class="email-info">
+
+                <router-link @click="onReadMail" :to="'/email/'+email.id">
+                    <td>{{email.sender}}</td>
+                    <td class="email-title">{{email.subject}}</td>
+                    <td class="email-date">{{dateFormat}}</td>
+                </router-link>  
+            </div>
             
         </tr>
     
@@ -40,7 +45,7 @@ export default {
         dateFormat() {
             const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
             const month = months[new Date(this.email.sentAt).getMonth()]
-            const res = `${month} ${new Date(this.email.sentAt).getDay()}`
+            const res = `${month} ${new Date(this.email.sentAt).getDay()} ${new Date(this.email.sentAt).getFullYear()}`
             return res
         },
         envelope() {

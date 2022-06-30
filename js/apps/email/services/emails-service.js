@@ -11,11 +11,11 @@ const gEmails = [
         id: utilService.makeId(),
         sender: 'Yolia',
         senderEmail: 'Yolia@gmail.com',
-        subject: 'Miss you!',
+        subject: ' Miss you!',
         body: 'Would love to catch up sometimes',
         isRead: true,
         isStar: false,
-        sentAt: Date.now(),
+        sentAt: 1650505550201,
         to: 'momo@momo.com'
     },
     {
@@ -26,7 +26,7 @@ const gEmails = [
         body: 'whatch the new commit i done in github',
         isRead: false,
         isStar: false,
-        sentAt: Date.now(),
+        sentAt: 1600505550201,
         to: 'momo@momo.com'
     },
     {
@@ -37,7 +37,7 @@ const gEmails = [
         body: 'GitGuardian has detected the following Google API Key exposed within your GitHub account',
         isRead: true,
         isStar: true,
-        sentAt: Date.now(),
+        sentAt: 1601505550201,
         to: 'momo@momo.com'
     },
     {
@@ -48,7 +48,7 @@ const gEmails = [
         body: ' The free trial for Nisan team has ended. Please log in and purchase a subscription within 14 days to keep working on your design projects.',
         isRead: false,
         isStar: true,
-        sentAt: Date.now(),
+        sentAt: 1612508550601,
         to: 'momo@momo.com'
     },
     {
@@ -137,13 +137,13 @@ function _createEmails() {
     return emails;
 }
 
-function getNextbookId(emailId) {
-    return storageService.query(EMAILS_KEY)
-        .then(emails => {
-            const idx = emails.findIndex(book => book.id === emailId)
-            return (idx < emails.length - 1) ? emails[idx + 1].id : emails[0].id
-        })
-}
+// function getNextbookId(emailId) {
+//     return storageService.query(EMAILS_KEY)
+//         .then(emails => {
+//             const idx = emails.findIndex(book => book.id === emailId)
+//             return (idx < emails.length - 1) ? emails[idx + 1].id : emails[0].id
+//         })
+// }
 
 
 // function getBooksList(value) {

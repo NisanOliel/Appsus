@@ -7,11 +7,11 @@ import emailSide from "../cmps/email-side.cmp.js"
 
 export default {
     template: `
-    <email-filter v-if="emails" @filtered="setFilter" :emails="emails"></email-filter>
+    <email-filter v-if="emails" @filtered="setFilter" :emails="emails" @sort="sortEmails"></email-filter>
     <section class="email-app">
             <div class="email-list-side">
+                <email-side @filtered="setFilter"  @newEmail="sendEmail" :unRead="unReadCount"></email-side>
             <email-list @readMail="readMail" @starMail="starMail" :emails="emailsToShow"></email-list>
-            <email-side @newEmail="sendEmail"></email-side>
         </div>
 
 
@@ -39,6 +39,7 @@ export default {
         setFilter(filterBy) {
             this.filterBy = filterBy;
         },
+
         starMail(email) {
             emailService.emailStar(email)
         },
@@ -48,7 +49,13 @@ export default {
         sendEmail(email) {
             emailService.save(email)
                 .then(email => this.emails.push(email))
-        }
+        },
+        sortEmails(sortBy) {
+            if (sortBy === 'date') {
+                return this.emails.sort((e1, e2) => e2.sentAt - e1.sentAt);
+            } else
+                return this.emails.sort((e1, e2) => e1.subject.toLowerCase() > e2.subject.toLowerCase() ? 1 : -1);
+        },
     },
     computed: {
         emailsToShow() {
@@ -60,6 +67,20 @@ export default {
             if (resTrue) return resTrue.filter((email) => regex.test(email.subject));
             return this.emails.filter((email) => regex.test(email.subject));
         },
+        unReadCount() {
+            let count = 0;
+            if (!this.emails) return;
+            this.emails.filter((email) => {
+                if (!email.isRead) {
+                    count++;
+                }
+            });
+            return count;
+        },
     },
     unmounted() { },
 };
+
+
+
+
