@@ -8,7 +8,7 @@ export default {
            
            <tr class="email-preview-container" >
                <td @click="onStarMail"> <i :class="starred"></i> </td> 
-               <router-link :to="'/email/'+email.id">
+               <router-link @click="onReadMail" :to="'/email/'+email.id">
              <td>{{email.sender}}</td>
             <td>{{email.subject}}</td>
             <td>{{dateFormat}}</td>
