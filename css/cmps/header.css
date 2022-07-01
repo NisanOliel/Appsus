@@ -1,5 +1,6 @@
 .app-header {
-    background-color: rgb(197, 212, 207);
+    background-color: rgb(36, 41, 47);
+
     padding: 2px;
     display: flex;
     justify-content: space-between;
@@ -7,10 +8,10 @@
 }
 
 .app-header .logo h1 {
-    font-family: 'Lobster', cursive;
+    /* font-family: 'Lobster', cursive; */
     font-size: 40px;
     margin-left: 30px;
-    color: black;
+    color: white;
 }
 
 .app-header .logo a {
@@ -25,5 +26,5 @@
     text-decoration: none;
     font-family: 'Fjalla One', sans-serif;
     padding: 5px;
-    color: black;
+    color: white;
 }
