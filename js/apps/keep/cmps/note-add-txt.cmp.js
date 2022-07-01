@@ -3,6 +3,7 @@ export default {
 			<section class="note-add">	
 		  		<form @submit.prevent="noteAdd">
 				  <input type="text" v-model="note.info.txt" placeholder="What's on your mind..."/>
+          <button>Add Text</button>
 		  		</form>
 			</section>
 		`,

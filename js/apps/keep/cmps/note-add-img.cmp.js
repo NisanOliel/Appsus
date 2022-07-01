@@ -3,6 +3,7 @@ export default {
 			  <section class="note-add">	
 					<form @submit.prevent="noteAdd">
 					<input type="text" v-model="note.info.url" placeholder="Enter image URL..."/>
+          <button>Add Image</button>
 					</form>
 			  </section>
 		  `,

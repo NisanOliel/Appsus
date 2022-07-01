@@ -2,7 +2,7 @@ export default {
   template: `
 		  <section class="note-add-options">
 			<div class="add-option" @click="setType('noteAddTxt')">
-			<i class="fa-solid fa-text-height"></i>
+				<i class="fa-solid fa-comment"></i>
 				<span>Text</span>
 		  	</div>
 			<div class="add-option" @click="setType('noteAddTodos')">

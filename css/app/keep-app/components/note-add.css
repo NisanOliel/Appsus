@@ -1,0 +1,14 @@
+.note-add form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 3em;
+}
+
+.note-add-todos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.note-add form * {
+}

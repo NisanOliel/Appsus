@@ -3,6 +3,7 @@ export default {
 			  <section class="note-add">	
 					<form @submit.prevent="noteAdd">
 					<input type="text" v-model="note.info.url" placeholder="Enter video URL..."/>
+          <button>Add Video</button>
 					</form>
 			  </section>
 		  `,

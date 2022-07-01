@@ -1,7 +1,14 @@
 @import './components/note-list.css';
 @import './components/note-options.css';
 @import './components/note-add-options.css';
+@import './components/note-add.css';
 
 img {
   width: 100%;
+}
+
+.keep-app h1 {
+  text-align: center;
+  font-size: 2em;
+  color: #155774;
 }
