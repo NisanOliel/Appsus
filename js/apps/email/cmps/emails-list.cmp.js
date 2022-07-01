@@ -6,13 +6,14 @@ export default {
 
     template: `
     <section class="emails-list ">
-       <table>
-          <tbody>
-              <tr >
-                 <email-preview @readMail="readMail" @removeEmail="removeEmail"  @starMail="starMail" :email="email"v-for="email in emails" :key="email.id" :class="email.isRead ? 'read' : ''"/>
-             </tr>
-          </tbody>
-        </table>
+                 <email-preview 
+                 @readMail="readMail" 
+                 @removeEmail="removeEmail"  
+                 @starMail="starMail" 
+                 :email="email"
+                 v-for="email in emails" 
+                 :key="email.id" 
+                 :class="email.isRead ? 'read' : ''"/>
     </section>
 `,
     components: {

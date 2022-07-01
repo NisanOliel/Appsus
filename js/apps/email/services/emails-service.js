@@ -73,8 +73,17 @@ const gEmails = [
         sentAt: Date.now(),
         to: "nisan@gmai.com"
     },
-
-
+    {
+        id: utilService.makeId(),
+        sender: loggedinUser.fullname,
+        senderEmail: loggedinUser.email,
+        subject: 'אתגר הכניסה קודינג אקדמי',
+        body: 'האתגר הועלה לחשבון גיטהאב',
+        isRead: false,
+        isStar: false,
+        sentAt: Date.now(),
+        to: "codingacademy@misterbit.co.il"
+    },
 ]
 
 const EMAILS_KEY = 'EmailsDB';

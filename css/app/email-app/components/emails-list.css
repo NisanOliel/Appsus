@@ -1,20 +1,10 @@
 .emails-list {
+    text-align: left;
+    width: 100%;
+    display: table;
     font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-    font-size: 1em;
+    font-size: 1.1em;
     letter-spacing: .2px;
     font-weight: bold;
-    width: 100%vh;
-    min-height: 70vh;
-}
-
-.emails-list table {
-    width: 100vw;
-    border-collapse: collapse;
-    margin: 30px 0;
-}
-
-.emails-list a {
-    text-decoration: none;
-    color: black;
-    display: flex;
+    max-height: 1em;
 }
