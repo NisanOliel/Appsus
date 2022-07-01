@@ -61,9 +61,10 @@ export default {
         },
         removeEmail(email) {
             if (email.removedAt) {
-                emailService.remove(email.id)
-                emailService.query().then(emails => this.emails = emails)
-                eventBus.emit('show-msg', { txt: 'Email deleted permanently ', type: 'success' });
+                emailService.remove(email.id).then(() => {
+                    emailService.query().then(emails => this.emails = emails)
+                    eventBus.emit('show-msg', { txt: 'Email deleted permanently ', type: 'success' });
+                })
 
             } else {
                 email.removedAt = Date.now()
