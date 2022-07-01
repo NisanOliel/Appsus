@@ -57,7 +57,7 @@ export default {
             if (sortBy === 'date') {
                 return this.emails.sort((email1, email2) => email2.sentAt - email1.sentAt);
             } else
-                return this.emails.sort((email1, email2) => email1.subject.toLowerCase() > email2.subject.toLowerCase() ? 1 : -1);
+                return this.emails.sort((email1, email2) => email1.sender.toLowerCase() > email2.sender.toLowerCase() ? 1 : -1);
         },
         removeEmail(email) {
             if (email.removedAt) {

@@ -17,6 +17,7 @@ export default {
 
         <td  title="Delete email" @click="remove(email.id)"><i class="fa-regular fa-trash-can trash"></i></td>
     </div>
+    <hr>
 
  </section>
 `,

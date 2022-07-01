@@ -14,7 +14,7 @@ export default {
             <label>Sort </label>
             <select @change="onSort" v-model="sort">
               <option value="date">Date</option>
-              <option value="title">Title</option>
+              <option value="name">Name</option>
             </select>
  </section>
 `,

@@ -6,9 +6,9 @@ export default {
     props: ["email"],
     template: `   
            <article class="email-preview-container" >
-                <td class="hover-icon " @click="onStarMail"> <i :class="starred"></i> </td> 
-                <td class="hover-icon" @click="onReadMail"><i :class="envelope"></i></td>
-                <td class="hover-icon" @click="toDraft(email)"><i class="fa-regular fa-trash-can trash"></i></td>
+                <td title="starred email" class="hover-icon " @click="onStarMail"> <i :class="starred"></i> </td> 
+                <td title=" read/unread" class="hover-icon" @click="onReadMail"><i :class="envelope"></i></td>
+                <td title=" delete email" class="hover-icon" @click="toDraft(email)"><i class="fa-regular fa-trash-can trash"></i></td>
             
                  <td @click="onOpenMail">{{email.sender}}</td>
                  <td @click="onOpenMail" class="email-title">{{email.subject}}</td>

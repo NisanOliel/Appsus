@@ -6,7 +6,9 @@ export default {
 
     template: `
     <section class="email-side">
-        <button class="compose-btn"  @click ="composeShow"> <img class="compose-img" src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png"> Compose</button>
+        <div class="compose-btn">
+            <button title="send new email"   @click ="composeShow"> <img class="compose-img" src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png"> Compose</button>
+        </div>
         <email-compose  @newEmail="sendNewEmail" v-if="showCompose"/>
 
         <button class="side-btn" @click="inboxClick"><i class="fa-solid fa-inbox"></i> Inbox</button>

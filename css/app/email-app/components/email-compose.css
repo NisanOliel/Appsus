@@ -49,3 +49,11 @@
     background-color: #297be6;
     outline: 1px solid transparent;
 }
+
+@media screen and (max-width: 850px) {
+    .compose-email {
+        width: 20em;
+        left: 15px;
+        bottom: 0px;
+    }
+}
