@@ -14,8 +14,12 @@
 
 .email-app {
     min-height: 90vh;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     overflow-x: hidden;
     padding-top: 1em;
-    margin: 0;
+    margin: auto
+}
+
+.main-mail-layout {
+    max-width: 1280px;
 }

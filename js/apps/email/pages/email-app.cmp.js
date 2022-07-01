@@ -8,7 +8,7 @@ import { eventBus } from "../../../services/eventBus-service.js";
 export default {
     template: `
     <email-filter v-if="emails" @filtered="setFilter" :emails="emails" @sort="sortEmails"></email-filter>
-    <section class="email-app">
+    <section class="email-app main-mail-layout">
             <div class="email-list-side">
                 <email-side @setFolder="setFolder"  @newEmail="sendEmail" :unRead="unReadCount"></email-side>
             <email-list @readMail="readMail" @removeEmail="removeEmail" @starMail="starMail" :emails="emailsToShow"></email-list>
@@ -57,7 +57,8 @@ export default {
             if (sortBy === 'date') {
                 return this.emails.sort((email1, email2) => email2.sentAt - email1.sentAt);
             } else
-                return this.emails.sort((email1, email2) => email1.subject.toLowerCase() > email2.subject.toLowerCase() ? 1 : -1);
+                debugger
+            return this.emails.sort((email1, email2) => email1.subject.toLowerCase() > email2.subject.toLowerCase() ? 1 : -1);
         },
         removeEmail(email) {
             if (email.removedAt) {

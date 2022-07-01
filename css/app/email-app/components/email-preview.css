@@ -1,38 +1,48 @@
 .email-preview-container {
     min-width: 100%;
-    /* cursor: pointer; */
-    display: flex;
-    gap: 1em;
-
+    border-bottom: 1px solid rgba(170, 170, 170, 0.356);
 }
 
-.icons {
+.email-preview-container td {
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
     cursor: pointer;
 }
 
-.email-info {
-    /* margin-left: 1em; */
-    /* width: 50px; */
+.email-preview-container:hover {
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%)
 }
 
-.email-title {
-    /* padding-left: 5em; */
+.email-preview-container td:nth-child(1) {
+    padding-right: 0.3em;
 }
 
-.email-date {
-    background-color: rgb(174, 211, 243);
+.email-preview-container td:nth-child(2) {
+    padding-right: 0.3em;
 }
 
+.email-preview-container td:nth-child(3) {
+    padding-right: 1.8em;
+}
+
+.email-preview-container td:nth-child(4) {
+    padding-right: 7.3em;
+}
+
+.email-preview-container td:nth-child(5) {
+    padding-right: 25em
+}
+
+
+.hover-icon:hover {
+    color: rgb(116, 89, 56);
+    cursor: pointer;
+}
 
 .read {
     background-color: rgba(212, 218, 218, 0.8);
     font-weight: normal;
 }
-
-/* 
-.email-preview-container td {}
-
-.email-preview-container .read td {} */
 
 .star {
     color: rgb(226, 226, 29);

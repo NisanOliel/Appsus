@@ -5,14 +5,13 @@ export default {
     props: ["emails"],
 
     template: `
-    <section class="emails-list">
-        
-    <table>
-            <tr v-for="email in emails" :key="email.id" :class="email.isRead ? 'read' : ''">
-            <email-preview @readMail="readMail" @removeEmail="removeEmail"  @starMail="starMail" :email="email"/>
-
-            </tr>
-
+    <section class="emails-list ">
+       <table>
+          <tbody>
+              <tr >
+                 <email-preview @readMail="readMail" @removeEmail="removeEmail"  @starMail="starMail" :email="email"v-for="email in emails" :key="email.id" :class="email.isRead ? 'read' : ''"/>
+             </tr>
+          </tbody>
         </table>
     </section>
 `,

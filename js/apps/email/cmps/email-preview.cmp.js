@@ -7,21 +7,15 @@ export default {
     template: `
            
            <tr class="email-preview-container" >
-            <div class="icons">
-                <td @click="onStarMail"> <i :class="starred"></i> </td> 
-                <td @click="onReadMail"><i :class="envelope"></i></td>
-                <td @click="toDraft(email)"><i class="fa-regular fa-trash-can trash"></i></td>
-            </div>
-            <div class="email-info">
-
-                <router-link @click="onReadMail" :to="'/email/'+email.id">
-                    <td>{{email.sender}}</td>
-                    <td class="email-title">{{email.subject}}</td>
-                    <td class="email-date">{{dateFormat}}</td>
-                </router-link>  
-            </div>
+                <td class="hover-icon" @click="onStarMail"> <i :class="starred"></i> </td> 
+                <td class="hover-icon" @click="onReadMail"><i :class="envelope"></i></td>
+                <td class="hover-icon" @click="toDraft(email)"><i class="fa-regular fa-trash-can trash"></i></td>
             
+                 <td @click="onOpenMail">{{email.sender}}</td>
+                 <td @click="onOpenMail" class="email-title">{{email.subject}}</td>
+                 <td @click="onOpenMail"  class="email-date">{{dateFormat}}</td>
         </tr>
+
     
 `,
     data() {
@@ -38,6 +32,10 @@ export default {
         },
         onReadMail() {
             this.$emit('readMail', this.email)
+        },
+        onOpenMail() {
+            this.$emit('readMail', this.email)
+            this.$router.push(`/email/${this.email.id}`)
         },
         toDraft(email) {
             this.$emit('removeEmail', email)
@@ -56,7 +54,7 @@ export default {
         },
         starred() {
             return (this.email.isStar) ? "fa-solid fa-star star" : "fa-regular fa-star"
-        }
+        },
     },
     unmounted() { },
 };
