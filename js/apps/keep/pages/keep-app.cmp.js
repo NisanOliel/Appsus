@@ -22,6 +22,7 @@ export default {
     eventBus.on('note-delete', this.noteDelete)
     eventBus.on('note-edit', this.noteEdit)
     eventBus.on('note-pin', this.notePin)
+    eventBus.on('color-change', this.setColor)
     noteService.query().then((notes) => (this.notes = notes))
   },
 
@@ -53,6 +54,16 @@ export default {
     noteAdd(note) {
       noteService.save(note).then(() => {
         noteService.query().then((notes) => (this.notes = notes))
+      })
+    },
+    setColor(idColorObj) {
+      noteService.get(idColorObj.noteId).then((note) => {
+        note.style.backgroundColor = idColorObj.color
+        noteService.update(note).then(() => {
+          noteService.query().then((notes) => {
+            this.notes = notes
+          })
+        })
       })
     },
   },
