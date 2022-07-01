@@ -1,6 +1,5 @@
 .app-header {
     background-color: rgb(36, 41, 47);
-
     padding: 2px;
     display: flex;
     justify-content: space-between;
@@ -8,8 +7,7 @@
 }
 
 .app-header .logo h1 {
-    /* font-family: 'Lobster', cursive; */
-    font-size: 40px;
+    font-size: 35px;
     margin-left: 30px;
     color: white;
 }
@@ -22,9 +20,55 @@
     margin-right: 20px;
 }
 
-.app-header .nav-bar a {
+.nav-bar a {
     text-decoration: none;
     font-family: 'Fjalla One', sans-serif;
     padding: 5px;
     color: white;
+}
+
+.hamburger-btn {
+    display: none;
+}
+
+
+/* Mobile */
+@media screen and (max-width: 850px) {
+    .nav-bar {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        right: 0;
+        top: 108px;
+        width: 100px;
+        height: 170px;
+        background-color: rgba(0, 0, 0, 0.548);
+        transform: translateX(150%);
+        transition: transform 0.6s, box-shadow 0.6s;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .open {
+        transform: translateX(0);
+    }
+
+    .app-header .nav-bar {
+        margin-right: 0px;
+    }
+
+    .hamburger-btn {
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 10px;
+        height: 50px;
+        width: 50px;
+        border: none;
+        color: white;
+        font-size: 1.6em;
+        background-color: transparent;
+        transition: color 0.3s;
+        cursor: pointer;
+    }
 }

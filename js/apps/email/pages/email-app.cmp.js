@@ -76,34 +76,34 @@ export default {
     },
     computed: {
         emailsToShow() {
-            let arr = this.emails
+            let filteredEmails = this.emails
             if (this.filterBy.isRead !== 'All')
-                arr = this.emails.filter((email) => {
+                filteredEmails = this.emails.filter((email) => {
                     return email.isRead === this.filterBy.isRead
                 });
 
             switch (this.filterBy.folder) {
                 case "inbox":
-                    arr = arr.filter((email) => email.to === "user@appsus.com" && !email.removedAt)
+                    filteredEmails = filteredEmails.filter((email) => email.to === "user@appsus.com" && !email.removedAt)
                     break;
                 case "star":
-                    arr = arr.filter((email) => email.isStar === true && !email.removedAt)
+                    filteredEmails = filteredEmails.filter((email) => email.isStar === true && !email.removedAt)
                     break;
                 case "sent":
-                    arr = arr.filter((email) => email.sender === "Mahatma Appsus" && !email.removedAt)
+                    filteredEmails = filteredEmails.filter((email) => email.sender === "Mahatma Appsus" && !email.removedAt)
                     break;
                 // case "draft":
-                //     arr = arr.filter((email) => email.removedAt)
+                //     filteredEmails = filteredEmails.filter((email) => email.removedAt)
                 //     break;
                 case "trash":
-                    arr = arr.filter((email) => email.removedAt)
+                    filteredEmails = filteredEmails.filter((email) => email.removedAt)
                     break;
                 default:
                     break;
 
             }
             const regex = new RegExp(this.filterBy.title, "i");
-            if (arr) return arr.filter((email) => regex.test(email.subject));
+            if (filteredEmails) return filteredEmails.filter((email) => regex.test(email.subject));
 
         },
         unReadCount() {
