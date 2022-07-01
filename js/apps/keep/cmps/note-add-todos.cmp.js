@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       note: {
-        id: Date.now() % 1000,
+        id: null,
         type: 'noteTodos',
         isPinned: false,
         isEdit: false,
@@ -29,12 +29,20 @@ export default {
 
   methods: {
     noteAdd() {
+      this.note.id = Date.now() % 1000
       this.note.info.todos = this.prepareTodos()
       this.$emit('note-add', this.note)
+      this.inputClear()
     },
     prepareTodos() {
       const todos = this.note.info.todos.split(',')
       return todos
+    },
+    inputClear() {
+      setTimeout(() => {
+        this.note.info.label = ''
+        this.note.info.todos = ''
+      }, 200)
     },
   },
 }

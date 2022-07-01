@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       note: {
-        id: Date.now() % 1000,
+        id: null,
         type: 'noteVideo',
         isPinned: false,
         isEdit: false,
@@ -27,7 +27,26 @@ export default {
 
   methods: {
     noteAdd() {
-      this.$emit('note-add', this.note)
+      if (this.isYoutubeVideo()) {
+        this.note.id = Date.now() % 1000
+        const videoId = this.getYoutubeVideoId()
+        this.note.info.url = `https://www.youtube.com/embed/${videoId}`
+        this.$emit('note-add', this.note)
+        this.inputClear()
+      }
+    },
+    isYoutubeVideo() {
+      return this.note.info.url.includes('youtube')
+    },
+    getYoutubeVideoId() {
+      const url = this.note.info.url
+      const videoIdIdx = url.indexOf('v=') + 2
+      return url.substring(videoIdIdx)
+    },
+    inputClear() {
+      setTimeout(() => {
+        this.note.info.url = ''
+      }, 200)
     },
   },
 }

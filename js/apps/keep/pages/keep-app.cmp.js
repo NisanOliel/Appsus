@@ -29,7 +29,13 @@ export default {
   methods: {
     noteDelete(noteId) {
       noteService.remove(noteId).then(() => {
-        noteService.query().then((notes) => (this.notes = notes))
+        noteService.query().then((notes) => {
+          this.notes = notes
+          eventBus.emit('show-msg', {
+            txt: 'Note deleted',
+            type: 'success',
+          })
+        })
       })
     },
     noteEdit(noteId) {
