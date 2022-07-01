@@ -2,7 +2,7 @@ export default {
   template: `
 			<section class="note-add">	
 		  		<form @submit.prevent="noteAdd">
-				  <input type="text" v-model="note.info.txt" placeholder="What's on your mind..."/>
+				  <input type="text" v-model="note.info.txt" placeholder="What's on your mind..." required/>
           <button>Add Text</button>
 		  		</form>
 			</section>

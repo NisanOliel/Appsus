@@ -23,6 +23,7 @@ export default {
     eventBus.on('note-edit', this.noteEdit)
     eventBus.on('note-pin', this.notePin)
     eventBus.on('color-change', this.setColor)
+    eventBus.on('click-todo', this.todoToggle)
     noteService.query().then((notes) => (this.notes = notes))
   },
 
@@ -30,6 +31,7 @@ export default {
     noteDelete(noteId) {
       noteService.remove(noteId).then(() => {
         noteService.query().then((notes) => {
+          notes.sort((a, b) => Number(b.isPinned) - Number(a.isPinned))
           this.notes = notes
           eventBus.emit('show-msg', {
             txt: 'Note deleted',
@@ -42,7 +44,11 @@ export default {
       noteService.get(noteId).then((note) => {
         note.isEdit = !note.isEdit
         noteService.update(note).then(() => {
-          noteService.query().then((notes) => (this.notes = notes))
+          noteService.query().then((notes) => {
+            this.notes = notes
+            notes.sort((a, b) => Number(b.isPinned) - Number(a.isPinned))
+            this.notes = notes
+          })
         })
       })
     },
