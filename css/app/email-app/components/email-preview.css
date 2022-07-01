@@ -10,7 +10,6 @@
     cursor: pointer;
 }
 
-
 .email-preview-container:hover {
     box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%)
 }
@@ -30,37 +29,36 @@
 }
 
 .email-date {
-    text-align: right;
+    text-align: center;
 }
 
 /* Mobile */
 @media screen and (max-width: 850px) {
-
-
     .email-list-side {
         flex-direction: column;
     }
 
     .email-side {
         flex-direction: row;
-        /* width: 100%; */
         align-items: baseline;
         justify-content: center;
-
     }
 
     .compose-btn {
         position: fixed;
         bottom: 5px;
         left: 15px;
-
     }
 }
 
+/* Mobile */
 @media screen and (min-width: 850px) {
     .email-side {
         flex-direction: column;
         width: 7em;
+    }
 
+    .email-date {
+        text-align: right;
     }
 }
