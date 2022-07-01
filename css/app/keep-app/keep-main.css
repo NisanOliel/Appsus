@@ -2,6 +2,7 @@
 @import './components/note-options.css';
 @import './components/note-add-options.css';
 @import './components/note-add.css';
+@import './components/note-todos.css';
 
 img {
   width: 100%;

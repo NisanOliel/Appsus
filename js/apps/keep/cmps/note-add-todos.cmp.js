@@ -36,7 +36,10 @@ export default {
     },
     prepareTodos() {
       const todos = this.note.info.todos.split(',')
-      return todos
+
+      return todos.map((todo) => {
+        return (todo = { txt: todo, isDone: false })
+      })
     },
     inputClear() {
       setTimeout(() => {

@@ -49,7 +49,7 @@ function _createNotes() {
         isEdit: false,
         info: {
           label: 'Get my stuff together',
-          todos: ['Driving liscence Coding power'],
+          todos: [{ txt: 'Driving liscence Coding power', isDone: false }],
         },
         style: {
           backgroundColor: 'yellow',
