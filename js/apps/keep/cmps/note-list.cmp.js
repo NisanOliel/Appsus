@@ -7,9 +7,9 @@ export default {
   props: ['notes'],
   template: `
 			<section class="note-list">
-				<div v-for="note in notes" :key="note.id" class="note-preview">
-					<component :is="note.type" :note="note"></component>
-				</div>
+				<!-- <div v-for="note in notes" :key="note.id" class="note-preview"> -->
+					<component :is="note.type" v-for="note in notes" :key="note.id" :note="note"></component>
+				<!-- </div> -->
 			</section>
 		`,
 

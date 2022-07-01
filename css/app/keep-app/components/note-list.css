@@ -8,4 +8,12 @@
 .note-preview {
   width: 200px;
   justify-self: center;
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid black;
+  transition: 0.2s;
+}
+
+.note-preview:hover {
+  transform: scale(1.05);
 }
