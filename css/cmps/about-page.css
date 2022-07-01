@@ -8,12 +8,18 @@
 
 .about-page h1 {
     padding: 5px;
-    font-family: 'Lobster', cursive;
+    font-family: 'Fjalla One', sans-serif;
     font-size: 20px;
 }
 
+.about-page p {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 15px;
+
+}
+
 .about-page img {
-    width: 700px;
-    height: 500px;
-    margin-top: 20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
 }

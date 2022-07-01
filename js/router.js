@@ -5,9 +5,6 @@ import emailApp from './apps/email/pages/email-app.cmp.js';
 import keepApp from './apps/keep/pages/keep-app.cmp.js';
 import bookDetails from './apps/books/pages/book-details.cmp.js';
 import emailDetails from './apps/email/pages/email-details.cmp.js';
-import oneAbout from './cmps/one-about.cmp.js'
-import twoAbout from './cmps/two-about.cmp.js'
-
 
 const routes = [
     {
@@ -17,16 +14,7 @@ const routes = [
     {
         path: '/about',
         component: aboutPage,
-        children: [
-            {
-                path: 'one',
-                component: oneAbout,
-            },
-            {
-                path: 'two',
-                component: twoAbout,
-            },
-        ]
+
     },
     {
         path: '/book',
