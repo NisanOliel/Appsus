@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       note: {
-        id: Date.now() % 1000,
+        id: null,
         type: 'noteTxt',
         isPinned: false,
         isEdit: false,
@@ -27,7 +27,14 @@ export default {
 
   methods: {
     noteAdd() {
+      this.note.id = Date.now() % 1000
       this.$emit('note-add', this.note)
+      this.inputClear()
+    },
+    inputClear() {
+      setTimeout(() => {
+        this.note.info.txt = ''
+      }, 200)
     },
   },
 }

@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       note: {
-        id: Date.now() % 1000,
+        id: null,
         type: 'noteImg',
         isPinned: false,
         isEdit: false,
@@ -27,7 +27,19 @@ export default {
 
   methods: {
     noteAdd() {
-      this.$emit('note-add', this.note)
+      if (this.isImage()) {
+        this.note.id = Date.now() % 1000
+        this.$emit('note-add', this.note)
+        this.inputClear()
+      }
+    },
+    isImage() {
+      return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(this.note.info.url)
+    },
+    inputClear() {
+      setTimeout(() => {
+        this.note.info.url = ''
+      }, 200)
     },
   },
 }

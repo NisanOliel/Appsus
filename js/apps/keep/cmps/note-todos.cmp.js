@@ -8,7 +8,7 @@ export default {
 				<div :contenteditable="note.isEdit" class="edit-area">
 			  		<h2>{{note.info.label}}</h2>
 			  		<ul>
-						<li v-for="todo in note.info.todos">{{todo}}</li>
+						<li v-for="todo in note.info.todos" @click="isDone">{{todo}}</li>
 			  		</ul>
 				</div>
 			</section>
