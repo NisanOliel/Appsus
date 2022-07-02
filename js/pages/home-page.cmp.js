@@ -1,7 +1,7 @@
 export default {
     template: `
  <section class="home-page">
-     <h1>WELCOME TO APSUS APP</h1>
+     <h1>WELCOME TO APPSUS APP</h1>
      <h5>All you need in one app.</h5>
 
 <div class="home-images">
