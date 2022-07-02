@@ -1,4 +1,3 @@
-import { eventBus } from '../../../services/eventBus-service.js'
 import noteOptions from './note-options.cmp.js'
 
 export default {

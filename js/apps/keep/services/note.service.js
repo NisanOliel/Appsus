@@ -10,7 +10,6 @@ export const noteService = {
   save,
   remove,
   update,
-  updateUnshift,
 }
 
 function _createNotes() {
@@ -108,20 +107,3 @@ function remove(noteId) {
 function update(updatedNote) {
   return storageService.put(NOTES_KEY, updatedNote)
 }
-
-function updateUnshift(updatedNote) {
-  return storageService.putUnshift(NOTES_KEY, updatedNote)
-}
-
-// function getNotesList(value) {
-//   const url = `https://www.googleapis.com/books/v1/volumes?printType=books&q=${value}`
-//   return axios
-//     .get(url)
-//     .then((res) => res.data.items)
-//     .then((items) => {
-//       let newItems = items.map(loadBookInfo)
-//       return Promise.all(newItems).then((item) => {
-//         return item
-//       })
-//     })
-// }

@@ -37,7 +37,6 @@ export default {
     },
     isImage() {
       return true
-      //  /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(this.note.info.url)
     },
     inputClear() {
       setTimeout(() => {

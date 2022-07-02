@@ -8,7 +8,6 @@ export default {
   template: `
 		  <section class="note-add">
 			  <note-add-options @set-type="setType"/>
-        <!-- <note-add-txt /> -->
         <component :is="noteAddType" @note-add="noteAdd"></component>
 		  </section>
 	  `,

@@ -112,5 +112,3 @@ export default {
     noteFilter,
   },
 }
-
-// https://www.npmjs.com/package/vue-contenteditable
