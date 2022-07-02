@@ -16,7 +16,6 @@ export default {
     created() { },
     methods: {
         remove(idx) {
-            console.log('idx:', idx)
             bookService.remove(idx)
             eventBus.emit('show-msg', { txt: 'Book Removed successfully', type: 'success' });
 
