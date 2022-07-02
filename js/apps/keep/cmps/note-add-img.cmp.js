@@ -2,7 +2,8 @@ export default {
   template: `
 			  <section class="note-add">	
 					<form @submit.prevent="noteAdd">
-					<input type="text" v-model="note.info.url" placeholder="Enter image URL..." required/>
+            <input type="text" v-model="note.info.title" placeholder="Enter title (optional)"/>
+					<input type="url" v-model="note.info.url" placeholder="Enter jpg/jpeg/png/webp/avif/gif/svg URL..." required/>
           <button>Add Image</button>
 					</form>
 			  </section>
@@ -16,6 +17,7 @@ export default {
         isPinned: false,
         isEdit: false,
         info: {
+          title: '',
           url: '',
         },
         style: {
@@ -38,8 +40,9 @@ export default {
     },
     inputClear() {
       setTimeout(() => {
+        this.note.info.title = ''
         this.note.info.url = ''
-      }, 200)
+      }, 100)
     },
   },
 }

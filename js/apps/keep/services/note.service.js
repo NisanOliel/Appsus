@@ -23,10 +23,11 @@ function _createNotes() {
         isPinned: false,
         isEdit: false,
         info: {
+          title: 'Txt',
           txt: 'Fullstack Me Baby!',
         },
         style: {
-          backgroundColor: 'red',
+          backgroundColor: 'rgb(226, 152, 152);',
         },
       },
       {
@@ -35,10 +36,11 @@ function _createNotes() {
         isPinned: false,
         isEdit: false,
         info: {
+          title: 'Img',
           url: 'https://www.copahost.com/blog/wp-content/uploads/2019/07/imgsize2.png',
         },
         style: {
-          backgroundColor: '#00d',
+          backgroundColor: 'rgb(225, 122, 122)',
         },
       },
       {
@@ -47,11 +49,11 @@ function _createNotes() {
         isPinned: false,
         isEdit: false,
         info: {
-          label: 'Get my stuff together',
+          title: 'Get my stuff together',
           todos: [{ txt: 'Driving liscence Coding power', isDone: false }],
         },
         style: {
-          backgroundColor: 'yellow',
+          backgroundColor: 'lightblue',
         },
       },
       {
@@ -64,7 +66,7 @@ function _createNotes() {
           url: 'https://www.youtube.com/embed/DXUAyRRkI6k',
         },
         style: {
-          backgroundColor: 'green',
+          backgroundColor: 'rgb(253, 255, 128)',
         },
       },
     ]

@@ -1,8 +1,8 @@
 export default {
   template: `
 			  <section class="note-add">	
-					<form @submit.prevent="noteAdd" class="note-add-todos">
-					<input type="text" v-model="note.info.label" placeholder="Enter label" required/>
+					<form @submit.prevent="noteAdd">
+					<input type="text" v-model="note.info.title" placeholder="Enter label" required/>
 					<input type="text" v-model="note.info.todos" placeholder="Enter comma separated list..." required/>
           <button>Add Todos</button>
 					</form>
@@ -17,7 +17,7 @@ export default {
         isPinned: false,
         isEdit: false,
         info: {
-          label: '',
+          title: '',
           todos: '',
         },
         style: {
@@ -43,9 +43,9 @@ export default {
     },
     inputClear() {
       setTimeout(() => {
-        this.note.info.label = ''
+        this.note.info.title = ''
         this.note.info.todos = ''
-      }, 200)
+      }, 100)
     },
   },
 }
