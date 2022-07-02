@@ -25,10 +25,6 @@
   transform: scale(1.05);
 }
 
-.keep-app {
-  min-height: 90vh;
-}
-
 .note-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -39,7 +35,7 @@
 }
 
 .note-preview {
-  text-align: center;
+  padding: 1em;
   position: relative;
   border-radius: 10px;
   background-color: lightgreen;
