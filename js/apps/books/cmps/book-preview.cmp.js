@@ -6,10 +6,10 @@ export default {
     props: ["book"],
     template: `
     <button @click="remove(book.id)">X</button>
-   <h4>{{book.title}}</h4>
-   <img :src="book.thumbnail" alt="" srcset="">
+    <h4>{{book.title}}</h4>
+    <img :src="imageUrl" alt="" srcset="">
     <p>Price: <span :class="price">{{book.listPrice.amount}} {{currency}}</span></p>
-`,
+    `,
     data() {
         return {};
     },
@@ -33,6 +33,13 @@ export default {
             if (this.book.listPrice.amount > 150) return "red"
             if (this.book.listPrice.amount < 20) return "green"
         },
+
+        imageUrl() {
+            if (this.book.thumbnail) return this.book.thumbnail
+            else {
+                return "images/noBookPhoto.jpg"
+            }
+        }
     },
     unmounted() { },
 };
