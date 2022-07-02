@@ -5,7 +5,7 @@ export default {
     template: `
     <button @click="remove(book.id)">X</button>
     <h4>{{book.title}}</h4>
-    <img :src="book.thumbnail" alt="" srcset="">
+    <img :src="imageUrl" alt="" srcset="">
     <p>Price: <span :class="price">{{book.listPrice.amount}} {{currency}}</span></p>
     `,
     data() {
