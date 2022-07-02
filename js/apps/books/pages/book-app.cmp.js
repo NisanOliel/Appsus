@@ -5,32 +5,24 @@ import bookDetails from "../pages/book-details.cmp.js";
 import bookFilter from "../cmps/book-filter.cmp.js";
 
 
-
-
-
-
 export default {
     template: `
     <section class="books-app">
         <book-filter v-if="books" @filtered="setFilter" :books="books"></book-filter>
         <book-list :books="booksToShow" @selected="selectBook"></book-list>
        <book-details ></book-details> 
-        
     </section>
 `,
     components: {
         bookList,
         bookDetails,
         bookFilter,
-
     },
     data() {
         return {
             books: null,
             filterBy: null,
             selectedBook: null,
-
-
         };
     },
     created() {
@@ -38,9 +30,7 @@ export default {
         eventBus.on('addBook', (book) => {
             this.books.unshift(book)
         }),
-
             eventBus.on('remove-book', this.removeBook)
-
 
 
     },
@@ -56,7 +46,6 @@ export default {
                 bookService.query().then(books => this.books = books)
             })
             eventBus.emit('show-msg', { txt: 'Book Removed successfully', type: 'success' });
-
         }
     },
     computed: {

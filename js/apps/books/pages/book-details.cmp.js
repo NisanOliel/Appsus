@@ -15,8 +15,7 @@ export default {
             <h4 v-if="book.listPrice.isOnSale">On sale!</h4>
             <img :src="bookImg" alt="book img">
         </div>
-        <div class="right-side">
-            
+        <div class="right-side">   
             <h3>description:</h3>
             <long-text :text="book.description"></long-text>
             <h4>{{pageCount}}</h4>
@@ -25,21 +24,15 @@ export default {
             <p>{{publishDate}}</p>
             <router-link :to="'/book/' + nextBookId">Next book</router-link>
             <router-link class="back" :to="'/book/'">back</router-link>
-
             <book-review></book-review>
             <review-view></review-view>
-            
-            
         </div>
-
-        
     </section>
 `,
     data() {
         return {
             book: null,
             nextBookId: null
-
         };
     },
     created() {

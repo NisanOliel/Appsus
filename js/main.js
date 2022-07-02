@@ -4,7 +4,6 @@ import appHeader from './cmps/app-header.cmp.js';
 import userMsg from './cmps/user-msg.cmp.js';
 
 
-
 const options = {
     template: `
  <section>

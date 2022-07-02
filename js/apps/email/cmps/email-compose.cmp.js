@@ -24,7 +24,6 @@ export default {
                 sender: null,
                 isStar: false,
                 isRead: false,
-
             },
         };
     },

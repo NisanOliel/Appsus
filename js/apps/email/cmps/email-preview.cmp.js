@@ -1,6 +1,3 @@
-import { emailService } from "../services/emails-service.js";
-import { eventBus } from "../../../services/eventBus-service.js";
-
 
 export default {
     props: ["email"],
@@ -9,7 +6,7 @@ export default {
                 <td title="starred email" class="hover-icon " @click="onStarMail"> <i :class="starred"></i> </td> 
                 <td title=" read/unread" class="hover-icon" @click="onReadMail"><i :class="envelope"></i></td>
                 <td title=" delete email" class="hover-icon" @click="toDraft(email)"><i class="fa-regular fa-trash-can trash"></i></td>
-            
+
                  <td @click="onOpenMail">{{email.sender}}</td>
                  <td @click="onOpenMail" class="email-title">{{email.subject}}</td>
                  <td @click="onOpenMail"  class="email-date">{{dateFormat}}</td>

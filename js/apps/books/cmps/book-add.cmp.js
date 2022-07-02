@@ -1,7 +1,6 @@
 import { bookService } from "../services/book-service.js";
 import { eventBus } from "../../../services/eventBus-service.js";
 
-
 export default {
     template: `
 <section>
@@ -11,7 +10,6 @@ export default {
         <button @click="searchBooks">Search</button>
         <ul>
             <li v-for="book in books">{{book.title}}  <button class="addPlus" @click="addBook(book,$event)">+</button></li>
-           
         </ul>
         </form>
     </section>`,
@@ -32,8 +30,6 @@ export default {
             bookService.save(book)
             eventBus.emit('show-msg', { txt: 'Added Book successfully', type: 'success' });
             eventBus.emit('addBook', book)
-
-
         }
     },
     computed: {},

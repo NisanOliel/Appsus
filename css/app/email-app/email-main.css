@@ -6,15 +6,11 @@
 @import 'components/email-filter.css';
 @import 'components/email-side.css';
 @import 'components/email-compose.css';
-/* @import 'components/review-add.css';
-@import 'components/reviews-view.css'; */
-
 
 
 
 .email-app {
     min-height: 90vh;
-    /* background-color: whitesmoke; */
     overflow-x: hidden;
     padding-top: 1em;
     margin: auto

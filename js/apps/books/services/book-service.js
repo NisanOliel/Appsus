@@ -455,8 +455,6 @@ export const bookService = {
     save,
     remove,
     getNextbookId,
-
-
 };
 
 function get(bookId) {
@@ -538,9 +536,7 @@ function loadBookInfo(book) {
         listPrice: {
             amount: utilService.getRandomInt(0, 200),
         }
-
     }
-
 }
 
 

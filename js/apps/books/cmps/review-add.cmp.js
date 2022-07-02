@@ -2,7 +2,6 @@ import { bookService } from "../services/book-service.js";
 import { eventBus } from "../../../services/eventBus-service.js";
 
 
-
 export default {
     template: `
     <section  class="review-add">
@@ -54,8 +53,6 @@ export default {
                 text: '',
             }
             eventBus.emit('show-msg', { txt: 'Added review successfully', type: 'success' });
-
-
         },
     },
     computed: {},

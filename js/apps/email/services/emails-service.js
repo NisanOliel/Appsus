@@ -198,7 +198,6 @@ function readMail(email) {
     return storageService.put(EMAILS_KEY, email);
 }
 
-
 function save(email) {
     if (email.id) return storageService.put(EMAILS_KEY, email)
     else return storageService.post(EMAILS_KEY, email)

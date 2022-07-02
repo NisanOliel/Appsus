@@ -29,7 +29,6 @@ export default {
     created() {
         const id = this.$route.params.emailId
         emailService.get(id).then(email => this.email = email)
-
     },
     methods: {
         remove(idx) {

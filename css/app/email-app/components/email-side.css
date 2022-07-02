@@ -1,7 +1,5 @@
 .email-side {
     display: flex;
-    /* flex-direction: column; */
-    /* width: 7em; */
     margin-left: 1em;
     margin-right: 1em;
 }
@@ -13,7 +11,6 @@
     display: block;
     height: 30px;
     min-width: 30px;
-
 }
 
 .compose-btn button {

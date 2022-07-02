@@ -1,8 +1,6 @@
 import { bookService } from "../services/book-service.js";
 import { eventBus } from "../../../services/eventBus-service.js";
 
-
-
 export default {
     template: `
         <section v-if="reviews" class="reviews-container ">

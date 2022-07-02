@@ -1,13 +1,11 @@
-import { bookService } from "../services/book-service.js";
 import { eventBus } from "../../../services/eventBus-service.js";
-
 
 export default {
     props: ["book"],
     template: `
     <button @click="remove(book.id)">X</button>
     <h4>{{book.title}}</h4>
-    <img :src="imageUrl" alt="" srcset="">
+    <img :src="book.thumbnail" alt="" srcset="">
     <p>Price: <span :class="price">{{book.listPrice.amount}} {{currency}}</span></p>
     `,
     data() {
@@ -29,7 +27,6 @@ export default {
             if (this.book.listPrice.amount > 150) return "red"
             if (this.book.listPrice.amount < 20) return "green"
         },
-
         imageUrl() {
             if (this.book.thumbnail) return this.book.thumbnail
             else {

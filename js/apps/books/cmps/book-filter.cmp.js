@@ -1,9 +1,7 @@
 import bookAdd from "../cmps/book-add.cmp.js";
 
-
 export default {
     props: ['books'],
-
     template: `
  <section class="book-filter">
     <label>Filter :</label>
@@ -11,7 +9,6 @@ export default {
  price:
  <input type="range" v-model="filterBy.price" @input="filter" :min="minPrice" :max="maxPrice"  v-model.number="filterBy.price">
  {{filterBy.price}}
- 
  <book-add></book-add>
 </section>
 `,
@@ -21,12 +18,10 @@ export default {
                 title: '',
                 price: '',
             },
-
         };
     },
     created() {
         this.filterBy.price = this.minPrice
-
     },
     methods: {
         filter() {
@@ -43,7 +38,6 @@ export default {
     },
     components: {
         bookAdd,
-
     },
     unmounted() { },
 };

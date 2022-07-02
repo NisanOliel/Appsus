@@ -3,7 +3,6 @@ import emailPreview from "../cmps/email-preview.cmp.js";
 
 export default {
     props: ["emails"],
-
     template: `
     <section class="emails-list ">
                  <email-preview 

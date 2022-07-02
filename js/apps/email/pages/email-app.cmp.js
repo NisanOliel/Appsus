@@ -100,7 +100,6 @@ export default {
                     break;
                 default:
                     break;
-
             }
             const regex = new RegExp(this.filterBy.title, "i");
             if (filteredEmails) return filteredEmails.filter((email) => regex.test(email.subject));
