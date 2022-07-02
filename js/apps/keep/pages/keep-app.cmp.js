@@ -89,11 +89,20 @@ export default {
   computed: {
     notesToShow() {
       if (!this.filterBy) return this.notes
-      if (!this.filterBy.search && !this.filterBy.type) return this.notes
-      if (!this.filterBy.search)
-        return this.notes.filter((note) => note.type === this.filterBy.type)
-
-      const regex = new RegExp(this.filterBy.search, 'i')
+      let filteredNotes = this.notes
+      if (this.filterBy.type) {
+        filteredNotes = filteredNotes.filter(
+          (note) => note.type === this.filterBy.type
+        )
+      }
+      if (this.filterBy.search) {
+        filteredNotes = filteredNotes.filter((note) =>
+          note.info.title
+            .toLowerCase()
+            .includes(this.filterBy.search.toLowerCase())
+        )
+      }
+      return filteredNotes
     },
   },
 
