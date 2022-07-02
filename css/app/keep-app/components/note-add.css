@@ -11,6 +11,12 @@
   margin-bottom: 3em;
 }
 
+.note-add input {
+  width: 18rem;
+  font-size: 1.2rem;
+  outline: none;
+}
+
 .note-add-todos {
   display: flex;
   flex-direction: column;
