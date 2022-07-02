@@ -7,10 +7,10 @@ export default {
     template: `
     <section class="email-side">
         <div class="compose-btn">
-            <button title="send new email"   @click ="composeShow"> <img class="compose-img" src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png"> Compose</button>
+            <button title="send new email"  @click ="composeShow"> <img class="compose-img" src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png"> Compose</button>
         </div>
-        <email-compose  @newEmail="sendNewEmail" v-if="showCompose"/>
-
+        <email-compose  @newEmail="sendNewEmail" @composeShow="composeShow" v-if="showCompose"/>
+        
         <button class="side-btn" @click="inboxClick"><i class="fa-solid fa-inbox"></i> Inbox</button>
         <button class="side-btn" @click="starClick" ><i class="fa-regular fa-star"></i> Starred</button>
         <button class="side-btn" @click="sentClick" ><i class="fa-solid fa-paper-plane"></i>  Sent</button>

@@ -1,6 +1,6 @@
 .about-page {
     text-align: center;
-    height: 90vh;
+    min-height: 90vh;
     align-items: center;
     margin: auto;
 }

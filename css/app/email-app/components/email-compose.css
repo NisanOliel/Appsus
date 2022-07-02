@@ -18,6 +18,21 @@
     margin: 0;
 }
 
+.compose-exit-btn {
+    position: absolute;
+    bottom: 482px;
+    left: 480px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.compose-exit-btn:hover {
+    background-color: #d4d6d841;
+}
+
+
 .compose-email input {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.171);
@@ -55,5 +70,10 @@
         width: 20em;
         left: 15px;
         bottom: 0px;
+    }
+
+    .compose-exit-btn {
+        bottom: 462px;
+        left: 314px;
     }
 }
