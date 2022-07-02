@@ -2,7 +2,7 @@ export default {
   template: `
 			  <section class="note-add">	
 					<form @submit.prevent="noteAdd">
-					<input type="text" v-model="note.info.url" placeholder="Enter image URL..." required/>
+					<input type="url" v-model="note.info.url" placeholder="Enter jpg/jpeg/png/webp/avif/gif/svg URL..." required/>
           <button>Add Image</button>
 					</form>
 			  </section>

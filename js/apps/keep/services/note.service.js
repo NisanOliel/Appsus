@@ -26,7 +26,7 @@ function _createNotes() {
           txt: 'Fullstack Me Baby!',
         },
         style: {
-          backgroundColor: 'red',
+          backgroundColor: 'lightblue',
         },
       },
       {
@@ -38,7 +38,7 @@ function _createNotes() {
           url: 'https://www.copahost.com/blog/wp-content/uploads/2019/07/imgsize2.png',
         },
         style: {
-          backgroundColor: '#00d',
+          backgroundColor: 'lightblue',
         },
       },
       {
@@ -51,7 +51,7 @@ function _createNotes() {
           todos: [{ txt: 'Driving liscence Coding power', isDone: false }],
         },
         style: {
-          backgroundColor: 'yellow',
+          backgroundColor: 'lightblue',
         },
       },
       {
@@ -64,7 +64,7 @@ function _createNotes() {
           url: 'https://www.youtube.com/embed/DXUAyRRkI6k',
         },
         style: {
-          backgroundColor: 'green',
+          backgroundColor: 'lightblue',
         },
       },
     ]

@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   padding: 20px;
+  gap: 5px;
 }
 
 .note-filter input {
@@ -17,4 +18,6 @@
   height: 2.7em;
   cursor: pointer;
   outline: none;
+  width: 5.9em;
+  text-align: center;
 }
