@@ -43,7 +43,6 @@ export default {
         },
 
         exitCompose() {
-            console.log('dsd');
             this.$emit('composeShow')
         }
 
