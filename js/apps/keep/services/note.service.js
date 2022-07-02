@@ -81,6 +81,36 @@ function _createNotes() {
           backgroundColor: 'rgb(225, 122, 122)',
         },
       },
+      {
+        id: 'n106',
+        type: 'noteTodos',
+        isPinned: false,
+        isEdit: false,
+        info: {
+          title: 'Sunday',
+          todos: [
+            { txt: 'Learn Vue', isDone: false },
+            { txt: 'Go to gym', isDone: false },
+            { txt: 'Go to supermarket', isDone: false },
+          ],
+        },
+        style: {
+          backgroundColor: 'rgb(199, 202, 209)',
+        },
+      },
+      {
+        id: 'n107',
+        type: 'noteTxt',
+        isPinned: false,
+        isEdit: false,
+        info: {
+          title: 'Thursday',
+          txt: 'Inbar wedding',
+        },
+        style: {
+          backgroundColor: 'rgb(96, 230, 154)',
+        },
+      },
     ]
     utilService.saveToStorage(NOTES_KEY, notes)
   }
