@@ -15,12 +15,8 @@ export default {
     },
     created() { },
     methods: {
-        remove(idx) {
-            bookService.remove(idx)
-            eventBus.emit('show-msg', { txt: 'Book Removed successfully', type: 'success' });
-
-
-
+        remove(id) {
+            eventBus.emit('remove-book', id);
         }
     },
     computed: {

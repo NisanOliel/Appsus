@@ -37,7 +37,9 @@ export default {
         bookService.query().then(books => this.books = books)
         eventBus.on('addBook', (book) => {
             this.books.unshift(book)
-        })
+        }),
+
+            eventBus.on('remove-book', this.removeBook)
 
 
 
@@ -49,6 +51,13 @@ export default {
         setFilter(filterBy) {
             this.filterBy = filterBy;
         },
+        removeBook(id) {
+            bookService.remove(id).then(() => {
+                bookService.query().then(books => this.books = books)
+            })
+            eventBus.emit('show-msg', { txt: 'Book Removed successfully', type: 'success' });
+
+        }
     },
     computed: {
         booksToShow() {
