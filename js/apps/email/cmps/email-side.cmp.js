@@ -16,7 +16,7 @@ export default {
         <button class="side-btn" @click="sentClick" ><i class="fa-solid fa-paper-plane"></i>  Sent</button>
         <!-- <button class="side-btn" @click="draftClick" ><i class="fa-solid fa-file"></i> Drafts</button> -->
         <button class="side-btn" @click="trashClick" ><i class="fa-solid fa-trash-can"></i> Trash</button>
-        <h3> <i class="fa-regular fa-envelope-open"></i> {{unRead}}</h3>
+        <h3 title="Unread message"> <i class="fa-regular fa-envelope-open"></i> {{unRead}}</h3>
 
     </section>
  

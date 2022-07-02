@@ -69,7 +69,7 @@ export default {
             } else {
                 email.removedAt = Date.now()
                 emailService.save(email)
-                eventBus.emit('show-msg', { txt: 'Email Draft', type: 'success' });
+                eventBus.emit('show-msg', { txt: 'Email moved to trash folder', type: 'success' });
             }
 
         }
