@@ -529,7 +529,7 @@ function loadBookInfo(book) {
         title: info.title,
         subtitle: info.subtitle,
         authors: info.authors,
-        thumbnail: info.imageLinks?.thumbnail,
+        thumbnail: info.imageLinks?.thumbnail.replace('http://', 'https://'),
         description: info.description,
         publishedDate: info.publishedDate,
         pageCount: info.pageCount,

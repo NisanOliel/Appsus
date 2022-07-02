@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: 30% 70%;
     font-family: 'Fjalla One', sans-serif;
-    height: 90vh;
+    min-height: 90vh;
     margin: auto;
 }
 
@@ -70,4 +70,20 @@
     background-color: rgb(100, 194, 100);
     color: black;
     border: 1px solid black;
+}
+
+/* Mobile */
+@media screen and (max-width: 850px) {
+    .book-details {
+        display: block;
+        padding-top: 60px;
+
+    }
+
+    .book-details img {
+        height: 350px;
+        width: 250px;
+    }
+
+
 }
