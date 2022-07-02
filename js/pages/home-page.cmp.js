@@ -1,8 +1,20 @@
 export default {
     template: `
  <section class="home-page">
-    <h3>Home sweet home</h3>
-    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80" alt="" srcset="">
+     <h1>WELCOME TO APSUS APP</h1>
+     <h5>All you need in one app.</h5>
+
+<div class="home-images">
+        <p>Email</p>
+        <router-link  to="/email"><img src="images/email.svg"></router-link>
+    
+        <p>Note</p>
+        <router-link  to="/keep"> <img src="images/note.svg"></router-link>
+        
+        <p>Books</p>
+        <router-link  to="/book"><img src="images/book.svg" ></router-link>
+</div>
+        
  </section>
 `,
     data() {
