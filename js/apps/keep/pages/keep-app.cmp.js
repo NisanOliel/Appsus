@@ -1,14 +1,17 @@
 import { noteService } from '../services/note.service.js'
 import { eventBus } from '../../../services/eventBus-service.js'
+import noteFilter from '../cmps/note-filter.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
 import noteAdd from '../cmps/note-add.cmp.js'
 
 export default {
   template: `
     <section class="keep-app">
-        <h1>My Notes</h1>
+      <div class="filter-and-add">
+        <note-filter @notes-filtered="setFilter"/>
         <note-add @note-add="noteAdd"/>
-        <note-list :notes="notes"/>
+        </div>
+        <note-list :notes="notesToShow"/>
     </section>
 `,
   data() {
@@ -78,11 +81,26 @@ export default {
         })
       })
     },
+    setFilter(filterBy) {
+      this.filterBy = filterBy
+    },
+  },
+
+  computed: {
+    notesToShow() {
+      if (!this.filterBy) return this.notes
+      if (!this.filterBy.search && !this.filterBy.type) return this.notes
+      if (!this.filterBy.search)
+        return this.notes.filter((note) => note.type === this.filterBy.type)
+
+      const regex = new RegExp(this.filterBy.search, 'i')
+    },
   },
 
   components: {
     noteList,
     noteAdd,
+    noteFilter,
   },
 }
 

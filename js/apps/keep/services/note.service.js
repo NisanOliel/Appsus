@@ -35,8 +35,7 @@ function _createNotes() {
         isPinned: false,
         isEdit: false,
         info: {
-          url: 'https://cloudfour.com/examples/img-currentsrc/images/kitten-small.png',
-          title: 'Bobi and Me',
+          url: 'https://www.copahost.com/blog/wp-content/uploads/2019/07/imgsize2.png',
         },
         style: {
           backgroundColor: '#00d',
