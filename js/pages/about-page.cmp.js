@@ -1,5 +1,5 @@
 export default {
-   template: `
+  template: `
  <section class="about-page">
     <h1>Nisan oliel</h1>
     <div class="social-icons">

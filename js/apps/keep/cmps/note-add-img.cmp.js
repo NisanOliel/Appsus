@@ -3,7 +3,7 @@ export default {
 			  <section class="note-add">	
 					<form @submit.prevent="noteAdd">
             <input type="text" v-model="note.info.title" placeholder="Enter title (optional)"/>
-					<input type="url" v-model="note.info.url" placeholder="Enter jpg/jpeg/png/webp/avif/gif/svg URL..." required/>
+					<input type="url" v-model="note.info.url" placeholder="Enter Image URL..." required/>
           <button>Add Image</button>
 					</form>
 			  </section>
@@ -36,7 +36,8 @@ export default {
       }
     },
     isImage() {
-      return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(this.note.info.url)
+      return true
+      //  /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(this.note.info.url)
     },
     inputClear() {
       setTimeout(() => {
