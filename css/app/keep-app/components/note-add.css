@@ -6,6 +6,8 @@
 
 .note-add form {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   gap: 5px;
 }
@@ -22,12 +24,6 @@
 .note-add input {
   width: 18rem;
   outline: none;
-}
-
-.note-add-todos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .note-add,

@@ -2,8 +2,9 @@ export default {
   template: `
 			<section class="note-add">	
 		  		<form @submit.prevent="noteAdd">
-				  <input type="text" v-model="note.info.txt" placeholder="What's on your mind..." required/>
-          <button>Add Text</button>
+            <input type="text" v-model="note.info.title" placeholder="Enter title (optional)"/>
+				    <input type="text" v-model="note.info.txt" placeholder="What's on your mind..." required/>
+            <button>Add Text</button>
 		  		</form>
 			</section>
 		`,
@@ -16,6 +17,7 @@ export default {
         isPinned: false,
         isEdit: false,
         info: {
+          title: '',
           txt: '',
         },
         style: {
@@ -33,8 +35,9 @@ export default {
     },
     inputClear() {
       setTimeout(() => {
+        this.note.info.title = ''
         this.note.info.txt = ''
-      }, 200)
+      }, 100)
     },
   },
 }
