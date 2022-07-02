@@ -7,8 +7,15 @@
 .note-add form {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 3em;
+  gap: 5px;
+}
+
+.note-add button {
+  background-color: #9ab0c969;
+  border: 1px solid white;
+  border-radius: 3px;
+  height: 2.7em;
+  cursor: pointer;
 }
 
 .note-add input {
