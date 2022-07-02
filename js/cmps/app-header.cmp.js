@@ -2,7 +2,7 @@ export default {
     template: `
   <header class="app-header">
             <div class="logo">
-            <router-link to="/"><h1 >Apsus App</h1></router-link>
+            <router-link to="/"><h1 >Appsus App</h1></router-link>
             </div>
             <nav :class="{ 'nav-bar': !isOpen, 'nav-bar open': isOpen }">
                 <router-link @click="toggleHamburger" to="/">Home</router-link>
